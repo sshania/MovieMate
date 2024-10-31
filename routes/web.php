@@ -27,3 +27,6 @@ Route::get('/auth/register', [AuthController::class, 'register']);
 Route::post('/auth/create', [AuthController::class, 'create']);
 
 Route::get('/seats', [SeatController::class, 'index']);
+
+Route::get('/movie/create', [MovieController::class, 'create'])->name('movie.create');
+Route::post('/movie/store', [MovieController::class, 'store'])->name('movie.store');
