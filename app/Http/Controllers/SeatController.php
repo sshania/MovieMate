@@ -45,6 +45,7 @@ class SeatController extends Controller
      */
     public function store(Request $request)
     {
+
         $seat = $request->input('seat_number');
         $total = $request->input('sub_total');
         // dd($seat);
@@ -52,7 +53,7 @@ class SeatController extends Controller
 
         try {
             Seat::create([
-                // 'studio_id' => 1,
+                'studio_id' => 1,
                 'seat_number' => $seat,
                 'sub_total' => $total
             ]);

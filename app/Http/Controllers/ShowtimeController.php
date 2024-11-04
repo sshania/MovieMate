@@ -13,19 +13,10 @@ use Illuminate\Support\Facades\Session;
 class ShowtimeController extends Controller
 {
     public function findByMovieID($id){
-        $movie = Movie::with(['showtimes' => function($query) {
-            $query->where('showtime', '>', Carbon::now());
-        }, 'showtimes.studio.cinema'])
-        ->findOrFail($id);
-
-        // $movie = Movie::with('showtimes')
-        // ->findOrFail($id);
-
-        $groupedByCinema = $movie->showtimes->groupBy(function($showtime) {
-            return $showtime->studio->cinema->name;
-        });
-
-        return view('main/movie-showtime', compact('movie', 'groupedByCinema'));
+        $movie = Movie::with('showtimes')->findOrFail($id); ;
+        $showtime = Showtime::with('cinema')->where('movie_id', $id)->get()->groupBy('cinema_id');
+        
+        return view('main/movie-showtime', compact('showtime', 'movie'));
     }
 
     /**
@@ -85,7 +76,7 @@ class ShowtimeController extends Controller
         $showtime = Showtime::findOrFail($id);
         $movies = Movie::get();
         $studios = Studio::get();
-        
+
         return view('admin/showtime/edit', ['showtimeData'=>$showtime, 'movieList'=>$movies, 'studioList'=>$studios]);
     }
 

@@ -14,17 +14,21 @@ class Showtime extends Model
     protected $fillable = [
         'movie_id',
         'studio_id',
+        'cinema_id',
         'showtime',
+        'showtime_date',
+        'showtime_hour'
     ];
 
     public function movie()
     {
+        // return $this->belongsTo(Movie::class);
         return $this->belongsTo(Movie::class, 'movie_id', 'id');
     }
 
-    public function studio()
+    public function cinema()
     {
-        return $this->belongsTo(Studio::class, 'studio_id', 'id');
+        return $this->belongsTo(Cinema::class, 'cinema_id', 'id');
     }
 
     public function tickets()
