@@ -38,6 +38,7 @@ Route::get('/auth/register', [AuthController::class, 'register']);
 Route::post('/auth/create', [AuthController::class, 'create']);
 
 Route::get('/seats', [SeatController::class, 'index']);
+Route::post('/seats', [SeatController::class, 'store']);
 
 Route::get('/movie/create', [MovieController::class, 'create'])->name('movie.create');
 Route::post('/movie/store', [MovieController::class, 'store'])->name('movie.store');
@@ -82,7 +83,7 @@ Route::prefix('/admin')->group(function(){
     Route::get('/showtime-edit/{id}', [ShowtimeController::class, 'edit'])->name('showtime.edit');
     Route::put('/showtime-update/{id}', [ShowtimeController::class, 'update'])->name('showtime.update');
     Route::delete('/showtime-destroy/{id}', [ShowtimeController::class, 'destroy'])->name('showtime.delete');
-    
+
     Route::get('/movie', [MovieController::class, 'adminIndex'])->name('movie.index');
     Route::get('/movie/{id}', [MovieController::class, 'adminShow'])->name('movie.detail');
 

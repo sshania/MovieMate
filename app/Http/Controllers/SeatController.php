@@ -13,10 +13,10 @@ class SeatController extends Controller
     public function findByStID($id){
         $showtime = Showtime::findOrFail($id);
         $studio = $showtime->studio;
-        
+
         $tickets = Ticket::where('showtime_id', $id)->get();
         $occupiedSeats = $tickets->pluck('seat_id')->toArray();
-        
+
         $availableSeats = $studio->seats->filter(function ($seat) use ($occupiedSeats) {
             return !in_array($seat->id, $occupiedSeats);
         });
@@ -45,7 +45,20 @@ class SeatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $seat = $request->input('seat_number');
+        $total = $request->input('sub_total');
+        // dd($seat);
+        // dd($total);
+
+        try {
+            Seat::create([
+                // 'studio_id' => 1,
+                'seat_number' => $seat,
+                'sub_total' => $total
+            ]);
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
     }
 
     /**
