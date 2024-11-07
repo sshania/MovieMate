@@ -59,6 +59,7 @@ class MovieController extends Controller
             'production_house' => 'required|string|max:255',
             'casts' => 'required|string',
             'description' => 'required|string',
+            'release_date' => 'required|date',
             'movie_images' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000',
         ]);
 
@@ -76,6 +77,7 @@ class MovieController extends Controller
             'production_house' => $request->production_house,
             'casts' => $request->casts,
             'description' => $request->description,
+            'release_date' => $request->release_date,
             'movie_images' => 'poster'.$imagePath,
         ]);
 

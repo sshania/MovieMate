@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('production_house');
             $table->text('casts');
             $table->text('description');
+            $table->date('release_date');
             $table->string('movie_images');
             $table->timestamps();
         });
