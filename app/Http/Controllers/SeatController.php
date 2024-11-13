@@ -52,15 +52,15 @@ class SeatController extends Controller
         // dd($seat);
         // dd($total);
 
-        try {
-            Seat::create([
-                'studio_id' => 1,
-                'seat_number' => $seat,
-                'sub_total' => $total
-            ]);
-        } catch (\Exception $e) {
-            dd($e->getMessage());
-        }
+        // try {
+        //     Seat::create([
+        //         'studio_id' => 1,
+        //         'seat_number' => $seat,
+        //         'sub_total' => $total
+        //     ]);
+        // } catch (\Exception $e) {
+        //     dd($e->getMessage());
+        // }
 
         try {
             Booking::create([

@@ -77,13 +77,13 @@ class BookingController extends Controller
 
         return redirect()->route('payment.failed')->with('message', 'Booking not found.');
     }
-    
+
     public function update(Request $request, $id)
     {
         $booking = Booking::findOrFail($id);
 
         $booking->update([
-            'payment_status' => $request->payment_status, // Only update payment status
+            'payment_status' => $request->payment_status, 
         ]);
 
         return response()->json(['message' => 'Booking updated successfully', 'booking' => $booking]);

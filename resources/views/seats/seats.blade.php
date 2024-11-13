@@ -79,13 +79,12 @@
     </div>
 
     <div class="order-container">
-        <form action="/payment-create" method="POST" id="seat">
+        <form action="{{ route('payment.create') }}" method="POST" id="seat">
             @csrf
 
             <input type="hidden" name="movie_id" value="{{ request('movie_id') }}">
             <input type="hidden" name="cinema_id" value="{{ request('cinema_id') }}">
             <input type="hidden" name="showtime_id" value="{{ request('showtime_id') }}">
-
 
                 <div class="order-title"><span id="red">YOUR ORDER</span></div>
                 <div class="order-details">
@@ -109,9 +108,13 @@
                     <input name="sub_total" style="display:none" />
                 </div>
                 <div class="button-container">
-                        <div class="next-button">
-                            <button type="submit" class="btn btn-primary">Next</button>
-                        </div>
+                    <div class="next-button">
+                        <button type="submit" class="btn btn-primary">
+                            {{-- <a href="{{ route('/main/payment') }}"> --}}
+                                Next
+                            {{-- </a> --}}
+                        </button>
+                    </div>
                 </div>
         </form>
     </div>

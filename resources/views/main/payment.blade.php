@@ -81,47 +81,20 @@
                 </div>
             </div>
 
-            <form action="{{ route('payment.update') }}" method="POST">
+            {{-- <form action="{{ route('payment.update') }}" method="POST"> --}}
                 @csrf
-                <input type="hidden" name="booking_id" value="{{ $booking->id }}">
+                {{-- <input type="hidden" name="booking_id" value="{{ $booking->id }}"> --}}
 
                 <div class="buttons">
-                    <button type="submit" class="btn btn-pay">Pay</button>
+                    <button type="submit" class="btn btn-pay">
+                        <a href="{{ route('payment.update', $booking->id) }}">
+                            Pay
+                        </a>
+                    </button>
                 </div>
-            </form>
+            {{-- </form> --}}
         </div>
     </div>
 </div>
-
-{{-- <div class="">
-    <div>
-        <div>
-            <h1>Your Order</h1>
-        </div>
-        <div>
-            <div>
-                <div class="">
-                    <img src="" alt="">
-                </div>
-                <div class="">
-
-                </div>
-            </div>
-            <div>
-
-            </div>
-        </div>
-        <div>
-            Payment Method
-        </div>
-        <div>
-            this is the radio part button
-        </div>
-        <div>
-            <button>Cancel</button>
-            <button>Pay</button>
-        </div>
-    </div>
-</div> --}}
 
 @endsection

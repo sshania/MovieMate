@@ -24,8 +24,8 @@ class PaymentController extends Controller
         $movieId = $request->input('movie_id');
         $cinemaId = $request->input('cinema_id');
         $showtimeId = $request->input('showtime_id');
-        $bookingId  = Booking::findOrFail($id); 
-
+        // $bookingId  = Booking::findOrFail($id);
+        // console.log("tes");
         return view('main.payment', compact('movieId', 'cinemaId', 'showtimeId'));
     }
 
@@ -34,8 +34,34 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $seat = $request->input('seat_number');
+        $total = $request->input('sub_total');
+        // dd($seat);
+        // dd($total);
+
+        try {
+            $movieId = $request->input('movie_id');
+            $cinemaId = $request->input('cinema_id');
+            $showtimeId = $request->input('showtime_id');
+            $booking = Booking::create([
+                        'user_id' => 1,
+                        'movie_id' => $request->movie_id,
+                        'cinema_id' => $request->cinema_id,
+                        'showtime_id' => $request->showtime_id,
+                        // 'showtime_id' => 1,
+                        'chosen_seat' => $seat,
+                        'total_price' => $total,
+                        'payment_status' => false,
+                        ]);
+
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+        return view('main.payment', compact('movieId', 'cinemaId', 'showtimeId', 'booking'));
+        // dd($request->all());
     }
+
 
     /**
      * Display the specified resource.
@@ -56,9 +82,14 @@ class PaymentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Payment $payment)
+    public function update($id)
     {
-        //
+        // console.log("Tes");
+        $payment = Booking::findOrFail($id);
+        $payment->update(['payment_status' => true]);
+        // dd($payment);
+
+        return redirect('/');
     }
 
     /**
