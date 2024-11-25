@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +14,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory(3)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Kevin Ahmad',
+            'email' => 'kev.af18@gmail.com',
+            'phone_number' => '081234567890',
+            'address' => 'Jl. Daan Mogot No. 12345',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'),
+            'remember_token' => Str::random(10),
+        ]);
+
+        $this->call([
+            CinemaSeeder::class,
+            StudioSeeder::class,
+            SeatSeeder::class,
+            MovieSeeder::class,
+            ShowtimeSeeder::class,
+            TicketSeeder::class,
         ]);
     }
 }
