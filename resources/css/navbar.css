@@ -1,0 +1,70 @@
+:root{
+    --red : #B0181C;
+    --yellow : #FCC252;
+}
+
+*{
+    font-family: 'poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(245, 245, 245, 0.7);
+    padding: 10px 20px;
+}
+
+.navbar:hover {
+    background-color: rgba(245, 245, 245, 0.9);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .logo img {
+    width: 20%;
+}
+
+.navbar .menu {
+    display: flex;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    margin: 0 15px;
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.navbar .menu a:hover {
+    color: var(--red);
+}
+
+.navbar .login {
+    background-color: var(--red);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .login:hover {
+    background-color: whitesmoke;
+    color: var(--red);
+    border: 2px solid var(--red);
+}
