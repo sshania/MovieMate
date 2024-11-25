@@ -12,5 +12,5 @@
         <a href="#">BOOKING</a>
         {{-- <a href="#">Lol</a> --}}
     </div>
-    <a href="#" class="login">Login</a>
+    <a href="#" class="login">logout</a>
 </nav>
