@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('showtime_id');
             $table->unsignedBigInteger('seat_id');
-            $table->decimal('price', 10, 2);
+            $table->integer('price');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
