@@ -1,4 +1,3 @@
-
 :root{
     --red : #B0181C;
     --yellow : #FCC252;
@@ -24,7 +23,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(245, 245, 245, 0.7);
+    background: linear-gradient(to right, white, black);
     padding: 10px 20px;
 }
 
@@ -44,7 +43,7 @@ body {
 .navbar .menu a {
     text-decoration: none;
     margin: 0 15px;
-    color: black;
+    color: whitesmoke;
     font-size: 15px;
     font-weight: 700;
     white-space: nowrap;
