@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -13,6 +14,25 @@ class MovieController extends Controller
     public function index()
     {
         //
+        $today = Carbon::today();
+
+        $movieCarousel = Movie::with('showtimes')->whereHas('showtimes', function($query) use($today){
+            $query->whereDate('showtime', $today);
+        })->limit(5)->get();
+        
+        $movieNow = Movie::with('showtimes')->whereHas('showtimes', function($query) use($today){
+            $query->whereDate('showtime', $today);
+        })->paginate(8);
+
+        $movieUp = Movie::with('showtimes')->where('release_date', '>' , $today)->paginate(8);
+
+        // yg diatas pke 'showtimes' buat cek data bener apa kgaa, klo dh aman nanti pke yg bawah aja
+        // $movieNow = Movie::whereHas('showtimes', function($query) use($today){
+        //     $query->whereDate('showtime', $today);
+        // })->get();
+        // $movieUp = Movie::where('release_date', '>' , $today)->get();
+
+        return view('main/home', ['movieCarousel' => $movieCarousel, 'movieNow' => $movieNow, 'movieUp' => $movieUp]);
     }
 
     /**
