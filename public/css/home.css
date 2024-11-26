@@ -1,0 +1,26 @@
+body {
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.movie-container{
+    padding: 20px;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    height: 300px;
+    gap: 20px;
+}
+
+.movie {
+    flex-direction: row;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+}
