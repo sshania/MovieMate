@@ -13,7 +13,7 @@
                 @csrf
                 <div class="input-group">
                     <label for="email">Email</label>
-                    <input type="text" id="email" value= "{{Session::get('email')}}" name="email" placeholder="email" required>
+                    <input type="email" id="email" value= "{{Session::get('email')}}" name="email" placeholder="email" required>
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
