@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\SeatController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -24,3 +25,5 @@ Route::get('/auth/logout', [AuthController::class, 'logout']);
 
 Route::get('/auth/register', [AuthController::class, 'register']);
 Route::post('/auth/create', [AuthController::class, 'create']);
+
+Route::get('/seats', [SeatController::class, 'index']);
