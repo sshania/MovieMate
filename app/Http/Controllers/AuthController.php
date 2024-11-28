@@ -23,7 +23,7 @@ class AuthController extends Controller
             'password' => 'required'
         ],[
             'email.required' => 'Email must be filled',
-            'password.requires' => 'Password must be filled'
+            'password.required' => 'Password must be filled'
         ]);
 
         $logininfo = [
@@ -35,7 +35,7 @@ class AuthController extends Controller
             return 'sukses';
             // return redirect('mainoage')
         }else{
-            return redirect('auth')->withErrors('Username or Password is invalid');
+            return redirect('auth')->withErrors(['login' => 'Username or Password is invalid']);
         }
     }
 

@@ -13,24 +13,25 @@
                 @csrf
                 <div class="input-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" value= "{{Session::get('name')}}" name="name" placeholder="name" required>
+                    <input type="text" id="name" value="{{Session::get('name')}}" name="name" placeholder="Name" required>
                 </div>
                 <div class="input-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" value= "{{Session::get('email')}}" name="email" placeholder="email" required>
+                    <input type="email" id="email" value="{{Session::get('email')}}" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
                     <label for="phone_number">Phone Number</label>
-                    <input type="phone_number" id="phone_number" value= "{{Session::get('phone_number')}}" name="phone_number" placeholder="phone_number" required>
+                    <input type="text" id="phone_number" value="{{Session::get('phone_number')}}" name="phone_number" placeholder="Phone Number" required>
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input type="tel" id="phone_number" value="{{ Session::get('phone_number') }}" name="phone_number" placeholder="Phone Number" required>
+                    <input type="password" id="password" value="{{Session::get('password')}}" name="password" placeholder="Password" required>
                 </div>
                 <div class="input-group">
                     <label for="confirmpass">Confirm Password</label>
                     <input type="password" id="confirmpass" name="confirmpass" placeholder="Confirm Password" required>
                 </div>
+
 
                 @if ($errors->any())
                     <div class="alert alert-danger">

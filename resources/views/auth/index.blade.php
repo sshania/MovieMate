@@ -13,11 +13,12 @@
                 @csrf
                 <div class="input-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" value= "{{Session::get('email')}}" name="email" placeholder="email" required>
+                    <input type="email" id="email" name="email" placeholder="Email" value="{{ Session::get('email') }}" required>
+
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="password" required>
+                    <input type="password" id="password" name="password" placeholder="Password">
                 </div>
 
                 @if ($errors->any())
