@@ -99,6 +99,13 @@
                             @endif
                         </div>
                         <div class="mb-3">
+                            <label for="release_date" class="form-label">Release Date</label>
+                            <input type="date" class="form-control" id="release_date" name="release_date" value="{{ old('release_date') }}">
+                            @if($errors->has('release_date'))
+                                <span class="text-danger">{{ $errors->first('release_date') }}</span>
+                            @endif
+                        </div>
+                        <div class="mb-3">
                             <label for="movie_images" class="form-label">Movie Image</label>
                             <input type="file" name="movie_images" id="movie_images" class="form-control" value="{{ old('movie_images') }}"/>
                             @if($errors->has('movie_images'))
