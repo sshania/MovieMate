@@ -14,11 +14,16 @@ return new class extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->enum('rating', ['SU', 'R 13+', 'D 17+']);
+            $table->integer('duration');
             $table->string('genre');
-            $table->integer('duration'); // Duration in minutes
-            $table->float('rating', 2, 1); // Example: 8.5
-            $table->text('description')->nullable();
-            $table->date('release_date');
+            $table->string('producer');
+            $table->string('director');
+            $table->string('writer');
+            $table->string('production_house');
+            $table->text('casts');
+            $table->text('description');
+            $table->string('movie_images');
             $table->timestamps();
         });
     }
