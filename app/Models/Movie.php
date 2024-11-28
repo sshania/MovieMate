@@ -1,5 +1,5 @@
 <?php
-
+    
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,7 +22,7 @@ class Movie extends Model
         'production_house',
         'casts',
         'description',
-        'movie_image',
+        'movie_images',
     ];
 
     public function showtimes()

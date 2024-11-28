@@ -19,7 +19,7 @@ class MovieController extends Controller
         $movieCarousel = Movie::with('showtimes')->whereHas('showtimes', function($query) use($today){
             $query->whereDate('showtime', $today);
         })->limit(5)->get();
-        
+
         $movieNow = Movie::with('showtimes')->whereHas('showtimes', function($query) use($today){
             $query->whereDate('showtime', $today);
         })->paginate(8);
@@ -40,7 +40,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.movie.create');
     }
 
     /**
@@ -48,7 +48,38 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'rating' => 'required|in:SU,R 13+,D 17+',
+            'duration' => 'required|integer',
+            'genre' => 'required|string|max:255',
+            'producer' => 'required|string|max:255',
+            'director' => 'required|string|max:255',
+            'writer' => 'required|string|max:255',
+            'production_house' => 'required|string|max:255',
+            'casts' => 'required|string',
+            'description' => 'required|string',
+            'movie_images' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000',
+        ]);
+
+        $imagePath = time().'.' .$request->movie_images->extension();
+        $request->movie_images->move(public_path('poster'), $imagePath);
+
+        Movie::create([
+            'title' => $request->title,
+            'rating' => $request->rating,
+            'duration' => $request->duration,
+            'genre' => $request->genre,
+            'producer' => $request->producer,
+            'director' => $request->director,
+            'writer' => $request->writer,
+            'production_house' => $request->production_house,
+            'casts' => $request->casts,
+            'description' => $request->description,
+            'movie_images' => 'poster'.$imagePath,
+        ]);
+
+        return redirect()->back()->with('success', 'Movie has been added!');
     }
 
     /**
