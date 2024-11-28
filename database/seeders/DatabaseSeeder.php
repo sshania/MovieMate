@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Kevin Ahmad',
             'email' => 'kev.af18@gmail.com',
             'phone_number' => '081234567890',
-            'address' => 'Jl. Daan Mogot No. 12345',
             'email_verified_at' => now(),
             'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
