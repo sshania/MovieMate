@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudioCreateUpdateRequest;
+use App\Models\Cinema;
 use App\Models\Studio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class StudioController extends Controller
 {
@@ -13,6 +16,8 @@ class StudioController extends Controller
     public function index()
     {
         //
+        $studio = Studio::with('cinema')->get();
+        return view('admin/studio/index', ['studioList'=>$studio]);
     }
 
     /**
@@ -21,45 +26,74 @@ class StudioController extends Controller
     public function create()
     {
         //
+        $cinemas = Cinema::get();
+        return view('admin/studio/create', ['cinemaList'=>$cinemas]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StudioCreateUpdateRequest $request)
     {
         //
+        $newStudio = $request->all();
+        $newStudio['total_seats']=0;
+        
+        $cinema = Cinema::findOrFail($newStudio['cinema_id']);
+        $cinema->total_studios += 1;
+        $cinema->save();
+
+        $studio = Studio::create($newStudio);
+        if($studio){
+            Session::flash('status', 'success');
+            Session::flash('message', 'add new Studio success');
+        }
+
+        return redirect(route('studio.index'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Studio $studio)
+    public function show($id)
     {
         //
+        $studio = Studio::findOrFail($id);
+        return view('admin/studio/detail', ['studioDetail'=>$studio]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Studio $studio)
+    public function edit($id)
     {
         //
+        $cinema = Cinema::get();
+        $studio = Studio::findOrFail($id);
+        return view('admin/studio/edit', ['studioData'=>$studio, 'cinemaList'=>$cinema]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Studio $studio)
+    public function update(StudioCreateUpdateRequest $request, $id)
     {
         //
+        $oldStudio = Studio::findOrFail($id);
+        $oldStudio->update($request->all());
+        
+        return redirect(route('studio.index'))->with('message', 'Studio berhasil di update');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Studio $studio)
+    public function destroy($id)
     {
         //
+        $oldStudio = Studio::findOrFail($id);
+        $oldStudio->delete();
+
+        return redirect(route('studio.index'))->with('message', 'Studio berhasil di delete');
     }
 }

@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SeatController;
+use App\Http\Controllers\StudioController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -30,3 +32,26 @@ Route::get('/seats', [SeatController::class, 'index']);
 
 Route::get('/movie/create', [MovieController::class, 'create'])->name('movie.create');
 Route::post('/movie/store', [MovieController::class, 'store'])->name('movie.store');
+
+Route::prefix('/admin')->group(function(){
+    Route::get('', function(){
+        return view('admin/home');
+    });
+
+    // Route::resource('/cinema', CinemaController::class);
+    Route::get('/cinema', [CinemaController::class, 'index'])->name('cinema.index');
+    Route::get('/cinema/{id}', [CinemaController::class, 'show'])->name('cinema.detail');
+    Route::get('/cinema-create', [CinemaController::class, 'create'])->name('cinema.create');
+    Route::post('/cinema-store', [CinemaController::class, 'store'])->name('cinema.store');
+    Route::get('/cinema-edit/{id}', [CinemaController::class, 'edit'])->name('cinema.edit');
+    Route::put('/cinema-update/{id}', [CinemaController::class, 'update'])->name('cinema.update');
+    Route::delete('/cinema-destroy/{id}', [CinemaController::class, 'destroy'])->name('cinema.delete');
+
+    Route::get('/studio', [StudioController::class, 'index'])->name('studio.index');
+    Route::get('/studio/{id}', [StudioController::class, 'show'])->name('studio.detail');
+    Route::get('/studio-create', [StudioController::class, 'create'])->name('studio.create');
+    Route::post('/studio-store', [StudioController::class, 'store'])->name('studio.store');
+    Route::get('/studio-edit/{id}', [StudioController::class, 'edit'])->name('studio.edit');
+    Route::put('/studio-update/{id}', [StudioController::class, 'update'])->name('studio.update');
+    Route::delete('/studio-destroy/{id}', [StudioController::class, 'destroy'])->name('studio.delete');
+});
