@@ -41,7 +41,7 @@ class MovieSeeder extends Seeder
                 'casts' => 'Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page',
                 'description' => 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.',
                 'movie_images' => 'inception.jpg',
-                'created_at' => now(),
+                'created_at' => now()->admon,
                 'updated_at' => now()
             ],
             [
