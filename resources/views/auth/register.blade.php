@@ -51,7 +51,7 @@
 
                 <button type="submit" class="login-button">REGISTER</button>
             </form>
-
+            <p>Already has an account? <a href="/auth">Login</a></p>
         </div>
     </div>
     <script src="{{ asset('js/regist.js') }}"></script>

@@ -32,7 +32,7 @@
                 @endif
                 <button type="submit" class="login-button">LOGIN</button>
             </form>
-
+            <p>Does not have account? <a href="/auth/register">Create one.</a></p>
         </div>
     </div>
 @endsection

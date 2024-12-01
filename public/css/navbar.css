@@ -69,3 +69,18 @@ body {
     color: var(--red);
     border: 2px solid var(--red);
 }
+
+.login-box p {
+    margin-top: 3%;
+    color: #fff;
+    text-decoration: none;
+    font-size: 90%;
+    /* font-weight: 500; */
+}
+
+.login-box a{
+    outline: none;
+    border: none;
+    text-decoration: none;
+    color: #FFFEAD;
+}
