@@ -1,0 +1,103 @@
+.footer {
+    background-color: #8B0000;
+    color: #FFFEAD;
+    padding: 20px;
+    text-align: center;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+.footer .menu a {
+    color: #FFFEAD;
+    font-weight: bold;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer .menu a:hover {
+    text-decoration: underline;
+}
+
+.footer .logo {
+    margin: 15px 0;
+}
+
+.footer .logo-image {
+    max-width: 200px;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+}
+
+.footerbawah {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerKiri{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    margin-left: 1%;
+}
+
+.footerKiri p{
+    max-width: 70%;
+}
+
+.footer .links a {
+    color: #FFFEAD;
+    font-weight: bold;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer .links span {
+    color: #FFFEAD;
+}
+
+.footer .copyright {
+    color: #fff;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.social-media {
+    flex: 1;
+    text-align: center;
+}
+
+.social-media .social-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.social-media-logo {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-media-logo .circle {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid #FFFEAD;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #FFFEAD;
+    transition: all 0.3s ease-in-out;
+    font-size: 20px;
+}
+
+.social-media-logo .circle:hover {
+    background-color: #FFFEAD;
+    color: #8B0000;
+}
+
