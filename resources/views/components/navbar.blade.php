@@ -13,8 +13,15 @@
     </div>
 
     @if(Auth::check())
-        <span class="greeting">Hello, {{ Auth::user()->email }}</span>
-        <a href="/auth/logout" class="logout">Logout</a>
+        <div class="greeting-container">
+            <span class="greeting">{{ Auth::user()->name }}</span>
+            <div class="dropdown">
+                <span class="dropdown-content">
+                    <a href="/admin">Admin Panel</a>
+                    <a href="/auth/logout">Logout</a>
+                </span>
+            </div>
+        </div>
     @else
         <a href="/auth" class="login">Login</a>
     @endif
@@ -23,6 +30,5 @@
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
-@endif
-
+    @endif
 </nav>

@@ -7,13 +7,10 @@ body {
     box-sizing: border-box;
 }
 
-.now-playing-container{
+.now-playing-container {
     padding: 20px;
 }
 
-.carousel-container{
-    margin-top: 100px;
-}
 .movies {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -24,7 +21,7 @@ body {
     /* align-items: start; */
 }
 
-.movie-container{
+.movie-container {
     /* display: flex; */
     justify-content: center;
     align-items: center;
@@ -42,14 +39,14 @@ body {
     text-align: center;
 }
 
-.movie-card{
+.movie-card {
     /* background-color: tomato; */
     padding: 20px;
     /* margin-bottom: 20px; */
     /* top:0; */
 }
 
-.movie-image{
+.movie-image {
     /* display: flex;
     justify-content: center;
     align-items: center;
