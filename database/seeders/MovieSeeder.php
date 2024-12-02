@@ -43,7 +43,7 @@ class MovieSeeder extends Seeder
                 'description' => 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.',
                 'release_date' => now()->addMonth(rand(1, 12)),
                 'movie_images' => 'inception.jpg',
-                'created_at' => now()->admon,
+                'created_at' => now(),
                 'updated_at' => now()
             ],
             [
