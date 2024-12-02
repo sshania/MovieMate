@@ -20,11 +20,14 @@ body {
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: linear-gradient(to right, white, black);
     padding: 10px 20px;
+    z-index: 1000;
 }
 
 .navbar:hover {
