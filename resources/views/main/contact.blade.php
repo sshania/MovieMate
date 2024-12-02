@@ -4,7 +4,7 @@
 @vite('resources/css/app.css')
 
 <!-- Heading -->
-<h1 class="font-bold text-5xl text-center mt-8 text-color1">
+<h1 class="font-bold text-6xl text-center mt-8 text-color1">
     CONTACT <span class="ml-2 text-color2">US</span>
 </h1>
 

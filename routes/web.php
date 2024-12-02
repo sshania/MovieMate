@@ -21,8 +21,8 @@ Route::get('/profile', function () {
     return view('main.profile');
 });
 
-Route::get('/about', function () {
-    return view('main.about');
+Route::get('/contact', function () {
+    return view('main.contact');
 });
 
 Route::get('/auth', [AuthController::class, 'index']);
