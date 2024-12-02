@@ -35,7 +35,6 @@ body {
 }
 
 .navbar .logo img {
-    /* margin-top: 2%; */
     width: 20%;
 }
 
@@ -81,7 +80,6 @@ body {
     color: #fff;
     text-decoration: none;
     font-size: 90%;
-    /* font-weight: 500; */
 }
 
 .login-box a {
@@ -98,10 +96,12 @@ body {
 }
 
 .greeting {
+    position: relative;
+    padding-right: 10px;
     cursor: pointer;
     font-weight: bold;
     text-transform: uppercase;
-    white-space: nowrap; /* Prevents wrapping to a new line */
+    white-space: nowrap;
     color: #b0181c;
 }
 
@@ -114,6 +114,7 @@ body {
     display: none;
     width: 150px;
     border-radius: 4px;
+    z-index: 1000;
 }
 
 .dropdown-content a {
@@ -129,5 +130,9 @@ body {
 }
 
 .greeting-container:hover .dropdown {
+    display: block;
+}
+
+.greeting-container:hover .dropdown:hover {
     display: block;
 }
