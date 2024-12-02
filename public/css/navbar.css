@@ -1,10 +1,10 @@
-:root{
-    --red : #B0181C;
-    --yellow : #FCC252;
+:root {
+    --red: #b0181c;
+    --yellow: #fcc252;
 }
 
-*{
-    font-family: 'poppins', sans-serif;
+* {
+    font-family: "poppins", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -25,8 +25,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to right, white, black);
-    padding: 10px 20px;
+    background: linear-gradient(to right, #e0e0e0bf, black);
+    padding: 30px 48px;
     z-index: 1000;
 }
 
@@ -81,9 +81,13 @@ body {
     /* font-weight: 500; */
 }
 
-.login-box a{
+.login-box a {
     outline: none;
     border: none;
     text-decoration: none;
-    color: #FFFEAD;
+    color: #fffead;
+}
+
+.greeting {
+    white-space: nowrap; /* Prevents wrapping to a new line */
 }

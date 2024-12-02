@@ -10,7 +10,19 @@
         <a href="/">UPCOMING</a>
         <a href="#">THEATER</a>
         <a href="#">BOOKING</a>
-        {{-- <a href="#">Lol</a> --}}
     </div>
-    <a href="/auth" class="login">Login</a>
+
+    @if(Auth::check())
+        <span class="greeting">Hello, {{ Auth::user()->email }}</span>
+        <a href="/auth/logout" class="logout">Logout</a>
+    @else
+        <a href="/auth" class="login">Login</a>
+    @endif
+
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 </nav>
