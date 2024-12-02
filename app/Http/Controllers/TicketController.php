@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TicketCreateUpdateRequest;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TicketController extends Controller
 {
@@ -13,6 +15,8 @@ class TicketController extends Controller
     public function index()
     {
         //
+        $ticket = Ticket::where('user_id', auth()->id())->get();
+        return view('main/ticket', compact('ticket'));
     }
 
     /**
@@ -26,9 +30,20 @@ class TicketController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TicketCreateUpdateRequest $request)
     {
         //
+        $newTicket = $request->all();
+        $newTicket['price'] = 20000;
+        // dd($newTicket);
+
+        $ticket = Ticket::create($newTicket);
+        if($ticket){
+            Session::flash('status', 'success');
+            Session::flash('message', 'add new Ticket success');
+        }
+
+        return redirect(route('user.ticket.index'));
     }
 
     /**

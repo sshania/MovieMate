@@ -4,12 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StudioCreateUpdateRequest;
 use App\Models\Cinema;
+use App\Models\Showtime;
 use App\Models\Studio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class StudioController extends Controller
 {
+    public function findSdByStID($id){
+        $showtime = Showtime::findOrFail($id);
+        $studio = Studio::with(['seats', 'seats.ticket' => function($query) use ($id) {
+            $query->where('showtime_id', $id);
+        }])->findOrFail($showtime->studio->id);
+        
+        $occupiedSeats = $studio->seats->pluck('tickets')->flatten()->where('showtime_id', $id)->pluck('seat_id')->toArray();
+        
+        $availableSeats = $studio->seats->filter(function ($seat) use ($occupiedSeats) {
+            return !in_array($seat->id, $occupiedSeats);
+        });
+
+        return view('main/seats', compact('studio', 'availableSeats', 'showtime'));
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -92,6 +108,11 @@ class StudioController extends Controller
     {
         //
         $oldStudio = Studio::findOrFail($id);
+
+        $cinema = Cinema::findOrFail($oldStudio['cinema_id']);
+        $cinema->total_studios -= 1;
+        $cinema->save();
+
         $oldStudio->delete();
 
         return redirect(route('studio.index'))->with('message', 'Studio berhasil di delete');
