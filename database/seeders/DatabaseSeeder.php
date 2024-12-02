@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
 
         // create admin
         User::factory()->create([
-            'name' => 'Kevin Ahmad',
-            'email' => 'kev.af18@gmail.com',
-            'phone_number' => '081234567890',
+            'name' => 'admin',
+            'email' => 'admin123@gmail.com',
+            'phone_number' => '08353628474',
             'email_verified_at' => now(),
-            'password' => bcrypt('password'),
+            'password' => bcrypt('admin123'),
             'role' => '2', // Admin
             'remember_token' => Str::random(10),
         ]);
