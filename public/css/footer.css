@@ -24,6 +24,13 @@
     margin: 15px 0;
 }
 
+.footerOne {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 .footer .logo-image {
     max-width: 200px;
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
