@@ -20,4 +20,9 @@ class Seat extends Model
     {
         return $this->belongsTo(Studio::class, 'studio_id', 'id');
     }
+
+    public function ticket()
+    {
+        return $this->belongsTo(Ticket::class, 'seat_id', 'id');
+    }
 }
