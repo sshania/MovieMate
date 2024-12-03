@@ -88,9 +88,26 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Movie $movie)
+    public function show($id)
     {
-        //
+        try {
+            $movie = Movie::find($id);
+
+            if (!$movie) {
+                return response()->json([
+                    'message' => 'Movie not found',
+                ], 404);
+            }
+
+            return view('main.detail', [
+                'movie' => $movie
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'An error occurred',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
     }
 
     /**

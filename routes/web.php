@@ -36,6 +36,7 @@ Route::get('/seats', [SeatController::class, 'index']);
 
 Route::get('/movie/create', [MovieController::class, 'create'])->name('movie.create');
 Route::post('/movie/store', [MovieController::class, 'store'])->name('movie.store');
+Route::get('/movies/{id}', [MovieController::class, 'show']);
 
 Route::prefix('/admin')->group(function(){
     Route::get('', function(){
