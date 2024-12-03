@@ -14,7 +14,8 @@ class Cinema extends Model
     protected $fillable = [
         'name',
         'location',
-        'total_studios'
+        'total_studios',
+        'contact'
     ];
 
     public function studios()

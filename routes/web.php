@@ -27,6 +27,8 @@ Route::get('/contact', function () {
     return view('main.contact');
 });
 
+Route::get('/cinema', [CinemaController::class, 'showList']);
+
 Route::get('/auth', [AuthController::class, 'index']);
 Route::post('/auth/login', [AuthController::class, 'login']);
 Route::get('/auth/logout', [AuthController::class, 'logout']);
@@ -38,6 +40,7 @@ Route::get('/seats', [SeatController::class, 'index']);
 
 Route::get('/movie/create', [MovieController::class, 'create'])->name('movie.create');
 Route::post('/movie/store', [MovieController::class, 'store'])->name('movie.store');
+
 Route::get('/movies/{id}', [MovieController::class, 'show']);
 
 Route::get('/ticket', [TicketController::class, 'index'])->name('user.ticket.index');

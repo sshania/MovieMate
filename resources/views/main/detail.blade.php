@@ -1,6 +1,6 @@
 @extends('layouts/home-layout')
 
-@section('title', 'MovieMate | HomePage')
+@section('title', 'MovieMate | MovieDetail')
 
 @section('content')
     <link rel="stylesheet" href="{{asset('css/detail.css')}}">

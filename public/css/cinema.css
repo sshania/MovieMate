@@ -1,0 +1,62 @@
+:root {
+    --red: #B0181C;
+    --yellow: #FCC252;
+    --text-white: #ffffff;
+    --background-dark: #121212;
+    --border-light: #ffffff33;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-white);
+    font-family: 'poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.theater-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-top: 60px;
+    color: var(--red);
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+h1 span {
+    color: var(--yellow);
+}
+
+.theater-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.theater-table thead th {
+    color: var(--yellow);
+    text-align: left;
+    padding: 10px 15px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.theater-table tbody td {
+    color: var(--text-white);
+    padding: 10px 15px;
+    font-size: 12px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.theater-table tbody tr:hover {
+    background-color: var(--border-light);
+}
+
+.theater-table tbody tr td:first-child {
+    font-weight: bold;
+}
