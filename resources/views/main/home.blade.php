@@ -51,7 +51,7 @@
         </div>
 
         <div class="now-playing-container">
-            <h1 class="title">Now Playing</h1>
+            <h1 class="title" id="now-playing">Now Playing</h1>
             <div class="movies">
                 @foreach ($movieNow as $mn)
                 <a href="/movies/{{ $mn->id }}">
@@ -76,7 +76,7 @@
         </div>
 
         <div class="container">
-            <h1 class="title">Upcoming</h1>
+            <h1 class="title" id="upcoming">Upcoming</h1>
             <div class="movies">
                 @foreach ($movieUp as $mu)
                 <a href="/movies/{{ $mu->id }}">

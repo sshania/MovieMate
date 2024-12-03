@@ -8,7 +8,7 @@
     <div class="menu">
         <a href="/">NOW SHOWING</a>
         <a href="/">UPCOMING</a>
-        <a href="#">THEATER</a>
+        <a href="/cinema">THEATER</a>
         <a href="#">BOOKING</a>
     </div>
 
