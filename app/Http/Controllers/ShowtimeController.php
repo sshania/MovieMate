@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ShowtimeCreateUpdateRequest;
+use App\Models\Movie;
 use App\Models\Showtime;
+use App\Models\Studio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ShowtimeController extends Controller
 {
@@ -13,6 +17,8 @@ class ShowtimeController extends Controller
     public function index()
     {
         //
+        $showtimes = Showtime::get();
+        return view('admin/showtime/index',['showtimeList' => $showtimes]);
     }
 
     /**
@@ -21,45 +27,78 @@ class ShowtimeController extends Controller
     public function create()
     {
         //
+        $movies = Movie::get();
+        $studios = Studio::get();
+        return view('admin/showtime/create', ['movieList'=>$movies, 'studioList'=>$studios]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ShowtimeCreateUpdateRequest $request)
     {
         //
+        $newShowtime = $request->all();
+
+        $showtime = Showtime::create($newShowtime);
+        if($showtime){
+            Session::flash('status', 'success');
+            Session::flash('message', 'add new Showtime success');
+        }
+
+        return redirect(route('showtime.index'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Showtime $showtime)
+    public function show($id)
     {
         //
+        $showtime = Showtime::findOrFail($id);
+        return view('admin/showtime/detail', ['showtimeDetail'=>$showtime]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Showtime $showtime)
+    public function edit($id)
     {
         //
+        $showtime = Showtime::findOrFail($id);
+        $movies = Movie::get();
+        $studios = Studio::get();
+        
+        return view('admin/showtime/edit', ['showtimeData'=>$showtime, 'movieList'=>$movies, 'studioList'=>$studios]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Showtime $showtime)
+    public function update(ShowtimeCreateUpdateRequest $request, $id)
     {
         //
+        $oldShowtime = Showtime::findOrFail($id);
+        $oldShowtime->update($request->all());
+
+        return redirect(route('showtime.index'))->with([
+            'status' => 'success',
+            'message' => 'Showtime berhasil di update',
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Showtime $showtime)
+    public function destroy($id)
     {
         //
+        $oldShowtime = Showtime::findOrFail($id);
+        $oldShowtime->delete();
+
+        return redirect(route('showtime.index'))->with([
+            'status' => 'success',
+            'message' => 'Showtime berhasil di hapus',
+        ]);
     }
 }

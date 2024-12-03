@@ -98,7 +98,10 @@ class StudioController extends Controller
         $oldStudio = Studio::findOrFail($id);
         $oldStudio->update($request->all());
         
-        return redirect(route('studio.index'))->with('message', 'Studio berhasil di update');
+        return redirect(route('studio.index'))->with([
+            'status' => 'success',
+            'message' => 'Studio berhasil di update',
+        ]);
     }
 
     /**
@@ -115,6 +118,9 @@ class StudioController extends Controller
 
         $oldStudio->delete();
 
-        return redirect(route('studio.index'))->with('message', 'Studio berhasil di delete');
+        return redirect(route('studio.index'))->with([
+            'status' => 'success',
+            'message' => 'Studio berhasil di hapus',
+        ]);
     }
 }
