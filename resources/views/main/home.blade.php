@@ -86,7 +86,6 @@
                                 <image src="{{ asset('poster/' . $mu->movie_images) }}" alt="{{$mu->title}}" class="movie-image"></image>
                             </div>
                         </div>
-
                         <div class="movie-text">
                             <h3 class="movie-title">{{$mu->title}}</h3>
                             <span class="movie-rating {{ $mu->rating }}">

@@ -35,7 +35,10 @@
                     <p>{{ $movie->description }}</p>
                 </div>
                 <div class="buy-ticket">
-                    <button class="btn btn-primary">Buy Ticket</button>
+                    <a href="/movie/{{ $movie->id }}/showtimes">
+                        <button class="btn btn-primary">Buy Ticket</button>
+                    </a>
+
                 </div>
             </div>
         </div>
