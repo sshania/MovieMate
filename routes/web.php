@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SeatController;
+use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\StudioController;
 
 // Route::get('/', function () {
@@ -58,4 +59,12 @@ Route::prefix('/admin')->group(function(){
     Route::get('/studio-edit/{id}', [StudioController::class, 'edit'])->name('studio.edit');
     Route::put('/studio-update/{id}', [StudioController::class, 'update'])->name('studio.update');
     Route::delete('/studio-destroy/{id}', [StudioController::class, 'destroy'])->name('studio.delete');
+
+    Route::get('/showtime', [ShowtimeController::class, 'index'])->name('showtime.index');
+    Route::get('/showtime/{id}', [ShowtimeController::class, 'show'])->name('showtime.detail');
+    Route::get('/showtime-create', [ShowtimeController::class, 'create'])->name('showtime.create');
+    Route::post('/showtime-store', [ShowtimeController::class, 'store'])->name('showtime.store');
+    Route::get('/showtime-edit/{id}', [ShowtimeController::class, 'edit'])->name('showtime.edit');
+    Route::put('/showtime-update/{id}', [ShowtimeController::class, 'update'])->name('showtime.update');
+    Route::delete('/showtime-destroy/{id}', [ShowtimeController::class, 'destroy'])->name('showtime.delete');
 });
