@@ -9,7 +9,7 @@
     <div class="justify-center w-full">
         <div id="indicators-carousel" class="relative w-full" data-carousel="static" >
             <div class='carousel-container'>
-                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                <div class="relative overflow-hidden rounded-lg" style="height: 50vh; padding: 10px;">
                     @php
                         $movieCarousel = [
                             ['image' => 'cinta-dalam-ikhlas.jpg', 'title' => 'cinta-dalam-ikhlas'],
@@ -20,7 +20,12 @@
 
                     @foreach ($movieCarousel as $index => $mc)
                         <div class="{{ $index === 0 ? 'block' : 'hidden' }} duration-700 ease-in-out" data-carousel-item="{{ $index === 0 ? 'active' : '' }}">
-                            <img src="{{ asset('iklan/' . $mc['image']) }}" style="width:700px" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="{{ $mc['title'] }}">
+                            <img src="{{ asset('iklan/' . $mc['image']) }}" 
+                                alt="{{ $mc['title'] }}"
+                                class="absolute block top-0 left-1/2 -translate-x-1/2"
+                                style="height: 90%; width: auto; object-fit: contain; 
+                                        border-radius: 1rem; 
+                                        box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5);">
                         </div>
                     @endforeach
                 </div>
@@ -51,53 +56,68 @@
         </div>
 
         <div class="now-playing-container">
-            <h1 class="title" id="now-playing">Now Playing</h1>
-            <div class="movies">
-                @foreach ($movieNow as $mn)
-                <a href="/movies/{{ $mn->id }}">
-                    <div class="movie-container">
-                        <div class="movie-card">
-                            <div class="movie">
-                                <image src="{{ asset('poster/' . $mn->movie_images) }}" alt="{{$mn->title}}" class="movie-image"></image>
-                            </div>
-                        </div>
-
-                        <div class="movie-text">
-                            <h3 class="movie-title">{{$mn->title}}</h3>
-                            <span class="movie-rating {{ $mn->rating }}">
-                                {{ $mn->rating }}
-                            </span>
-                        </div>
-                    </div>
-                </a>
-                @endforeach
+            <div class="title-with-arrow">
+            <a href="/your-target-page" class="title-link">
+                <span class="arrow"></span>
+                <h1 class="title" id="now-playing">Now Playing</h1>
+            </a>
             </div>
-            {{ $movieNow->links() }}
+            <div class="movies-container">
+                <div class="movies">
+                    @foreach ($movieNow as $mn)
+                        <a href="/movies/{{ $mn->id }}" class="movie-link">
+                            <div class="movie-container">
+                                <div class="movie-card">
+                                    <div class="movie">
+                                        <image src="{{ asset('poster/' . $mn->movie_images) }}" alt="{{$mn->title}}" class="movie-image"></image>
+                                    </div>
+                                </div>
+                                <div class="movie-text">
+                                    <h3 class="movie-title">{{$mn->title}}</h3>
+                                    <span class="movie-rating {{ $mn->rating }}">
+                                        {{ $mn->rating }}
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+                {{ $movieNow->links() }}
+            </div>
         </div>
 
-        <div class="container">
-            <h1 class="title" id="upcoming">Upcoming</h1>
-            <div class="movies">
-                @foreach ($movieUp as $mu)
-                <a href="/movies/{{ $mu->id }}">
-                    <div class="movie-container">
-                        <div class="movie-card">
-                            <div class="movie">
-                                <image src="{{ asset('poster/' . $mu->movie_images) }}" alt="{{$mu->title}}" class="movie-image"></image>
-                            </div>
-                        </div>
-                        <div class="movie-text">
-                            <h3 class="movie-title">{{$mu->title}}</h3>
-                            <span class="movie-rating {{ $mu->rating }}">
-                                {{ $mu->rating }}
-                            </span>
-                        </div>
-                    </div>
-                </a>
-                @endforeach
+        <div class="upcoming-container">
+            <div class="title-with-arrow">
+            <a href="/your-target-page" class="title-link">
+                <span class="arrow"></span>
+                <h1 class="title" id="upcoming">Upcoming</h1>
+            </a>
             </div>
-            {{ $movieUp->links() }}
+            <div class="movies-container">
+                <div class="movies">
+                    @foreach ($movieUp as $mu)
+                        <a href="/movies/{{ $mu->id }}" class="movie-link">
+                            <div class="movie-container">
+                                <div class="movie-card">
+                                    <div class="movie">
+                                        <image src="{{ asset('poster/' . $mu->movie_images) }}" alt="{{$mu->title}}" class="movie-image"></image>
+                                    </div>
+                                </div>
+                                <div class="movie-text">
+                                    <h3 class="movie-title">{{$mu->title}}</h3>
+                                    <span class="movie-rating {{ $mu->rating }}">
+                                        {{ $mu->rating }}
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+                {{ $movieUp->links() }}
+            </div>
         </div>
+
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
