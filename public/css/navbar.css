@@ -11,12 +11,12 @@
     outline: none;
     border: none;
     text-decoration: none;
-    color: whitesmoke;
 }
 body {
     margin: 0;
     /* font-family: Arial, sans-serif;*/
     background-color: black;
+    color: whitesmoke;
 }
 
 .navbar {
