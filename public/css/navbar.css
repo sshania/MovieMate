@@ -1,10 +1,10 @@
-:root{
-    --red : #B0181C;
-    --yellow : #FCC252;
+:root {
+    --red: #b0181c;
+    --yellow: #fcc252;
 }
 
-*{
-    font-family: 'poppins', sans-serif;
+* {
+    font-family: "poppins", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,7 +18,7 @@ body {
     background-color: black;
     color: whitesmoke;
 }
-
+/* Test */
 .navbar {
     position: fixed;
     top: 0;
@@ -81,9 +81,9 @@ body {
     /* font-weight: 500; */
 }
 
-.login-box a{
+.login-box a {
     outline: none;
     border: none;
     text-decoration: none;
-    color: #FFFEAD;
+    color: #fffead;
 }
