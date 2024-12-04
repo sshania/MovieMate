@@ -56,6 +56,16 @@ class MovieController extends Controller
         return view('main/home', ['movieCarousel' => $movieCarousel, 'movieNow' => $movieNow, 'movieUp' => $movieUp]);
     }
 
+    public function booking(){
+        $today = Carbon::today();
+
+        $movieNow = Movie::with('showtimes')->whereHas('showtimes', function($query) use($today){
+            $query->whereDate('showtime', '<=', $today);
+        })->paginate(8);
+
+        return view('main/booking', ['movieNow' => $movieNow]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -27,6 +27,7 @@ Route::get('/contact', function () {
     return view('main.contact');
 });
 
+Route::get('/booking', [MovieController::class, 'booking']);
 Route::get('/cinema', [CinemaController::class, 'showList']);
 
 Route::get('/auth', [AuthController::class, 'index']);
