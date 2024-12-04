@@ -1,56 +1,56 @@
-:root{
-    --red : #B0181C;
-    --yellow : #FCC252;
+:root {
+    --red: #b0181c;
+    --yellow: #fcc252;
 }
 
-*{
-    font-family: 'poppins', sans-serif;
+* {
+    font-family: "poppins", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: none;
     border: none;
     text-decoration: none;
-}
-body {
-    margin: 0;
-    /* font-family: Arial, sans-serif;*/
-    background-color: black;
     color: whitesmoke;
 }
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
 .navbar {
-    position: fixed;
     top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to right, white, black);
-    padding: 10px 20px;
+    background: linear-gradient(to right, #e0e0e0bf, black);
+    padding: 16px;
     z-index: 1000;
-}
-
-.navbar:hover {
-    background-color: rgba(245, 245, 245, 0.9);
-    transition: background-color 0.3s, color 0.3s;
+    flex-wrap: wrap;
 }
 
 .navbar .logo img {
-    /* margin-top: 2%; */
-    width: 20%;
+    height: 30px;
 }
 
 .navbar .menu {
     display: flex;
+    gap: 15px;
+    flex: 1;
+    justify-content: flex-end;
+    margin-right: 12px;
 }
 
 .navbar .menu a {
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 10px;
     color: whitesmoke;
     font-size: 15px;
     font-weight: 700;
     white-space: nowrap;
+    transition: color 0.3s ease;
 }
 
 .navbar .menu a:hover {
@@ -61,7 +61,7 @@ body {
     background-color: var(--red);
     color: white;
     padding: 5px 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     text-decoration: none;
     border: 2px solid transparent;
     transition: background-color 0.3s, color 0.3s;
@@ -73,17 +73,113 @@ body {
     border: 2px solid var(--red);
 }
 
-.login-box p {
-    margin-top: 3%;
-    color: #fff;
-    text-decoration: none;
-    font-size: 90%;
-    /* font-weight: 500; */
+.greeting-container {
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
-.login-box a{
-    outline: none;
-    border: none;
+.greeting {
+    padding-right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    display: none;
+    width: 150px;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
     text-decoration: none;
-    color: #FFFEAD;
+    color: #333;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+}
+
+.greeting-container:hover .dropdown {
+    display: block;
+}
+
+.alert {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(
+            180deg,
+            rgba(245, 245, 245, 0.8) 0%,
+            rgba(0, 0, 0, 1) 100%
+        ); /* Change gradient to top-down */
+    }
+
+    .navbar .logo {
+        margin-bottom: 15px; /* Add space between the logo and menu */
+    }
+
+    .navbar .menu {
+        flex-direction: column;
+        align-items: center; /* Center-align the menu */
+        gap: 10px;
+        width: auto; /* Let the menu take only the space it needs */
+    }
+
+    .navbar .menu a {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+    .navbar .greeting-container {
+        justify-content: center;
+        margin-top: 10px; /* Add space above the greeting */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px;
+        background: linear-gradient(
+            180deg,
+            rgba(245, 245, 245, 0.8) 0%,
+            rgba(0, 0, 0, 1) 100%
+        ); /* Ensure gradient remains top-down for smaller screens */
+    }
+
+    .navbar .logo {
+        margin-bottom: 10px; /* Adjust space for smaller screens */
+    }
+
+    .navbar .menu {
+        gap: 5px;
+    }
+
+    .navbar .menu a {
+        font-size: 12px;
+    }
+
+    .navbar .login {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
 }
