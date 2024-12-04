@@ -4,6 +4,7 @@
 
 @section('content')
     <link rel="stylesheet" href="{{asset('css/booking.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
 
     <div class="now-playing-container">
         <h1 class="title-booking" id="now-playing"><span>Choose</span> A Movie</h1>
