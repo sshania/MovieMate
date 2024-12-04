@@ -22,7 +22,7 @@
                     <span>|</span>
                     <a href="#">HELP</a>
                     <span>|</span>
-                    <a href="#">CONTACT US</a>
+                    <a href="/contact">CONTACT US</a>
                     <p class="copyright">
                         © 1999-2012 MovieMate.com. All materials and contents (texts, graphics, and every attribute) of MovieMate or
                         MovieMate.com website are copyrights and trademarks of PT Sinema Nusantara Abadi. Any commercial usage of the

@@ -11,9 +11,14 @@ body {
     padding: 20px;
 }
 
+.container {
+    margin-left: 1.5%;
+}
+
 .carousel-container{
     margin-top: 100px;
 }
+
 .movies {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
