@@ -9,7 +9,7 @@
         <a href="/">NOW SHOWING</a>
         <a href="/">UPCOMING</a>
         <a href="/cinema">THEATER</a>
-        <a href="{{ Auth::check() && Auth::user()->role == 2 ? '/admin' : '/' }}">
+        <a href="{{ Auth::check() && Auth::user()->role == 2 ? '/admin' : '/booking' }}">
             {{ Auth::check() && Auth::user()->role == 2 ? 'DASHBOARD' : 'BOOKING' }}
         </a>
     </div>
