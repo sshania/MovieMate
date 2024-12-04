@@ -9,11 +9,13 @@
         <a href="/">NOW SHOWING</a>
         <a href="/">UPCOMING</a>
         <a href="/cinema">THEATER</a>
-        <a href="#">BOOKING</a>
+        <a href="{{ Auth::check() && Auth::user()->role == 2 ? '/admin' : '/' }}">
+            {{ Auth::check() && Auth::user()->role == 2 ? 'DASHBOARD' : 'BOOKING' }}
+        </a>
     </div>
 
     @if(Auth::check())
-        <div class="greeting-container">
+        {{-- <div class="greeting-container">
             <span class="greeting">{{ Auth::user()->name }}</span>
             <div class="dropdown">
                 <span class="dropdown-content">
@@ -21,7 +23,8 @@
                     <a href="/auth/logout">Logout</a>
                 </span>
             </div>
-        </div>
+        </div> --}}
+        <a href="/auth/logout" class="login">Logout</a>
     @else
         <a href="/auth" class="login">Login</a>
     @endif

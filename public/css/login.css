@@ -107,6 +107,11 @@
     font-size: 14px;
 }
 
+.alert.alert-danger {
+    color: #721c24;
+}
+
+
 .alert-danger ul {
     margin: 0;
     padding-left: 0;
