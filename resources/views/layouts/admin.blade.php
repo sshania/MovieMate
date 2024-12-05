@@ -16,41 +16,8 @@
 <body>
     @include('components.navbar')
 
-    <h1 style="font-weight: 700">Hi Admin!</h1>
-    <div class="text-center mb-4">
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
-            Open Menu
-        </button>
-    </div>
-
     <div class="content">
         @yield('content')
-    </div>
-
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasScrollingLabel" style="font-size: 40px; color:#FCC252; font-weight: 600;">Menu</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <i class="bi bi-camera-reels me-2"></i><a href="{{ route('cinema.index') }}" class="text-decoration-none text-white">Cinema</a>
-                </li>
-                <li class="list-group-item">
-                    <i class="bi bi-building me-2"></i><a href="{{ route('studio.index') }}" class="text-decoration-none text-white">Studio</a>
-                </li>
-                <li class="list-group-item">
-                    <i class="bi bi-person-fill me-2"></i><a href="{{ route('movie.index') }}" class="text-decoration-none text-white">Movie</a>
-                </li>
-                <li class="list-group-item">
-                    <i class="bi bi-person-fill me-2"></i><a href="{{ route('showtime.index') }}" class="text-decoration-none text-white">Showtime</a>
-                </li>
-                <li class="list-group-item">
-                    <i class="bi bi-person-fill me-2"></i><a href="#" class="text-decoration-none text-white">Booking</a>
-                </li>
-            </ul>
-        </div>
     </div>
 
     @include('styling/bootstrapjs')

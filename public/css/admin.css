@@ -1,26 +1,32 @@
-:root{
-    --red : #B0181C;
-    --darkerred : #7E1616;
-    --yellow : #FCC252;
+:root {
+    --red: #b0181c;
+    --darkerred: #7e1616;
+    --yellow: #fcc252;
+    --text-white: #ffffff;
+    --background-dark: #121212;
+    --border-light: #ffffff33;
 }
 
 body {
-    background-color: black;
-    font-family: 'poppins', sans-serif !important;
-    color: white;
+    background-color: var(--background-dark);
+    color: var(--text-white);
+    font-family: "Poppins", sans-serif !important;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    margin-top: 50px;
 }
 
-.content {
-    font-family: 'Poppins', sans-serif !important;
-}
-
-
-h1, h2, h3, h4, h5, h6, p, span, a {
-    font-family: 'Poppins', sans-serif;
+.content,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+    font-family: "Poppins", sans-serif;
 }
 
 h1 {
@@ -46,12 +52,9 @@ h1 {
 
 .content {
     margin: 20px auto;
-    padding: 20px;
-    background-color: #2b2b2b;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 0;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1600px;
 }
 
 .btn-primary {
@@ -82,5 +85,170 @@ h1 {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     background-color: var(--red);
-    color: white;
+    color: var(--text-white);
+}
+
+/* Container for the entire admin layout */
+.admin-container {
+    display: flex;
+    height: 80vh;
+    border-radius: 25px;
+    overflow: hidden; /* Prevent content overflow */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: var(--text-white);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 25px 0 0 25px;
+    height: auto; /* Or any desired height, maybe a max-height */
+    position: relative; /* Use relative positioning */
+}
+
+.sidebar-link {
+    color: var(--text-white);
+    text-decoration: none;
+    margin: 10px 0;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-link:hover {
+    background-color: #444;
+}
+
+.admin-btn {
+    background-color: #ff9800; /* Orange button for Booking */
+    color: var(--text-white);
+}
+
+.sidebar-link.active {
+    background-color: #007bff;
+}
+
+/* Main Content Styling */
+/* Main Content Styling */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 0 25px 25px 0;
+    height: 100vh;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+/* Stylize scrollbar */
+.main-content::-webkit-scrollbar {
+    width: 8px; /* Set width for vertical scrollbar */
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background-color: var(--red); /* Red color for the thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+    border: 2px solid var(--background-dark); /* Dark border to separate thumb from track */
+}
+
+.main-content::-webkit-scrollbar-track {
+    background-color: #2b2b2b; /* Dark background for the track */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+    background-color: var(--yellow); /* Change color on hover to yellow */
+}
+
+.main-content::-webkit-scrollbar-track:hover {
+    background-color: #444; /* Slightly lighter track on hover */
+}
+
+.main-content {
+    display: block; /* Remove flex and center alignment */
+}
+
+/* Centering the Welcome Message */
+.welcome-message {
+    text-align: center;
+}
+
+.welcome-message h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.welcome-message p {
+    font-size: 1.25rem;
+}
+
+/* Optional: For better layout on small screens */
+@media (max-width: 768px) {
+    .admin-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 10px;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+}
+
+/* Cinema Styling */
+.theater-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-top: 60px;
+    color: var(--red);
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+h1 span {
+    color: var(--yellow);
+}
+
+.theater-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.theater-table thead th {
+    color: var(--yellow);
+    text-align: left;
+    padding: 10px 15px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.theater-table tbody td {
+    color: var(--text-white);
+    padding: 10px 15px;
+    font-size: 12px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.theater-table tbody tr:hover {
+    background-color: var(--border-light);
+}
+
+.theater-table tbody tr td:first-child {
+    font-weight: bold;
 }
