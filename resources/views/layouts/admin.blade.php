@@ -33,10 +33,10 @@
                     <a href="{{ route('studio.index') }}">Studio</a>
                 </li>
                 <li class="list-group-item">
-                    <a href="">Hai</a>
+                    <a href="{{ route('showtime.index') }}">Showtime</a>
                 </li>
                 <li class="list-group-item">
-                    <a href="">Hai</a>
+                    <a href="{{ route('movie.index') }}">Movie</a>
                 </li>
                 <li class="list-group-item">
                     <a href="">Hai</a>

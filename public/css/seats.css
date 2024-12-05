@@ -137,6 +137,34 @@ body {
     margin-bottom: 1rem;
 }
 
+.taken{
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 18px;
+    color: #FCC252;
+}
+
+.seat-taken{
+    background-color: red;
+    color:white
+}
+
+.seat.select {
+    background-color: #FCC252;
+}
+
+#seat-count {
+    font-size: 18px;
+    color: #FCC252;
+    font-weight: bold;
+}
+
+#price {
+    font-size: 18px;
+    color: #FCC252;
+    font-weight: bold;
+}
+
 #sub-total{
     margin-right: 5px;
 }
@@ -157,7 +185,7 @@ body {
 }
 
 #order-price {
-    margin-top: 4rem;
+    margin-top: 1rem;
 }
 
 .next-button {

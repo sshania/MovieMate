@@ -67,28 +67,31 @@
             </div>
             <div class="screen">Screen</div>
         </div>
-
     </div>
 
     <div class="order-container">
         <form action="" method="POST" id="seat">
             @csrf
                 <div class="order-title"><span id="red">YOUR ORDER</span></div>
-                <input name="seat-name" style="display:none" />
-                <input name="sub-total" style="display:none" />
                 <div class="order-details">
                     <p>
                         <img src="" alt="">
                         Seat(s) :
+                        <span id="seat-count"></span>
                     </p>
+                    <input name="seat-total" style="display:none" />
                     <p>
                         <img src="" alt="">
                         Seat No:
                     </p>
+                    <input name="seat-name" style="display:none" />
+                    <div class="taken"></div>
                     <p id="order-price">
                         <img src="" alt="">
                         Total Price:
+                        <span id="price"></span>
                     </p>
+                    <input name="sub-total" style="display:none" />
                 </div>
                 <div class="button-container">
                     <div class="next-button">
@@ -98,4 +101,6 @@
         </form>
     </div>
 </div>
+<script src="{{ asset('js/seats.js') }}"></script>
 @endsection
+

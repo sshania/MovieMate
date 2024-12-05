@@ -1,6 +1,6 @@
 @extends('layouts/admin')
 
-@section('title', 'Add New Cinema')
+@section('title', 'Edit Cinema')
 
 @section('content')
 

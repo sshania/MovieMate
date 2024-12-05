@@ -3,10 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\Seat;
+use App\Models\Showtime;
+use App\Models\Studio;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class SeatController extends Controller
 {
+    public function findByStID($id){
+        $showtime = Showtime::findOrFail($id);
+        $studio = $showtime->studio;
+        
+        $tickets = Ticket::where('showtime_id', $id)->get();
+        $occupiedSeats = $tickets->pluck('seat_id')->toArray();
+        
+        $availableSeats = $studio->seats->filter(function ($seat) use ($occupiedSeats) {
+            return !in_array($seat->id, $occupiedSeats);
+        });
+
+        return view('main/seats', compact('studio', 'availableSeats', 'showtime'));
+    }
+
     /**
      * Display a listing of the resource.
      */

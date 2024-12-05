@@ -47,10 +47,10 @@ Route::get('/movies/{id}', [MovieController::class, 'show']);
 Route::get('/ticket', [TicketController::class, 'index'])->name('user.ticket.index');
 
 // buy ticket
-Route::get('/movie/{id}',[MovieController::class, 'findMovieByID'])->name('user.movie.detail');
-Route::get('/movie/{id}/showtimes', [MovieController::class, 'findShowtimeByID'])->name('user.movie.showtime');
+Route::get('/movie/{id}',[MovieController::class, 'findByID'])->name('user.movie.detail');
+Route::get('/movie/{id}/showtimes', [ShowtimeController::class, 'findByMovieID'])->name('user.movie.showtime');
 
-Route::get('/studio/{id}/seats', [StudioController::class, 'findSdByStID'])->name('user.studio.seat');
+Route::get('/studio/{id}/seats', [SeatController::class, 'findByStID'])->name('user.studio.seat');
 Route::post('/ticket-store', [TicketController::class, 'store'])->name('user.ticket.store');
 
 Route::prefix('/admin')->group(function(){
@@ -82,4 +82,12 @@ Route::prefix('/admin')->group(function(){
     Route::get('/showtime-edit/{id}', [ShowtimeController::class, 'edit'])->name('showtime.edit');
     Route::put('/showtime-update/{id}', [ShowtimeController::class, 'update'])->name('showtime.update');
     Route::delete('/showtime-destroy/{id}', [ShowtimeController::class, 'destroy'])->name('showtime.delete');
+    
+    Route::get('/movie', [MovieController::class, 'adminIndex'])->name('movie.index');
+    Route::get('/movie/{id}', [MovieController::class, 'adminShow'])->name('movie.detail');
+
+
+    Route::get('/movie-edit/{id}', [MovieController::class, 'edit'])->name('movie.edit');
+    Route::put('/movie-update/{id}', [MovieController::class, 'update'])->name('movie.update');
+    Route::delete('/movie-destroy/{id}', [MovieController::class, 'destroy'])->name('movie.delete');
 });
