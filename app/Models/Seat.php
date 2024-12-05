@@ -12,20 +12,20 @@ class Seat extends Model
     protected $table = 'seats';
 
     protected $fillable = [
-        // 'studio_id',
+        'studio_id',
         'seat_number',
         'sub_total'
     ];
 
     public function studio()
     {
-        // return $this->belongsTo(Studio::class, 'studio_id', 'id', 'sub_total');
-        return $this->belongsTo(Studio::class, 'seat_number', 'sub_total');
+        return $this->belongsTo(Studio::class, 'studio_id', 'seat_number', 'sub_total');
+        // return $this->belongsTo(Studio::class, 'seat_number', 'sub_total');
     }
 
     public function ticket()
     {
-        // return $this->belongsTo(Ticket::class, 'seat_id', 'id', 'sub_total');
-        return $this->belongsTo(Ticket::class, 'seat_number', 'sub_total');
+        return $this->belongsTo(Ticket::class, 'studio_id', 'seat_number', 'sub_total');
+        // return $this->belongsTo(Ticket::class, 'seat_number', 'sub_total');
     }
 }

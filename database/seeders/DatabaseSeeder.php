@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin123'),
             'role' => '2', // Admin
             'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         $this->call([

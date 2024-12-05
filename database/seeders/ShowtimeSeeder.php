@@ -14,13 +14,21 @@ class ShowtimeSeeder extends Seeder
     public function run(): void
     {
         DB::table('showtimes')->insert([
-            ['movie_id' => 1, 'studio_id' => 1, 'showtime' => '2024-11-25 14:00:00', 'created_at' => now(), 'updated_at' => now()],
-            ['movie_id' => 2, 'studio_id' => 1, 'showtime' => '2024-11-25 16:00:00', 'created_at' => now(), 'updated_at' => now()],
-            ['movie_id' => 3, 'studio_id' => 2, 'showtime' => '2024-11-25 18:00:00', 'created_at' => now(), 'updated_at' => now()],
-            ['movie_id' => 4, 'studio_id' => 2, 'showtime' => '2024-11-25 20:00:00', 'created_at' => now(), 'updated_at' => now()],
-            ['movie_id' => 5, 'studio_id' => 3, 'showtime' => '2024-11-25 22:00:00', 'created_at' => now(), 'updated_at' => now()],
-            ['movie_id' => 6, 'studio_id' => 3, 'showtime' => '2024-11-26 00:00:00', 'created_at' => now(), 'updated_at' => now()],
-            ['movie_id' => 7, 'studio_id' => 4, 'showtime' => '2024-11-26 02:00:00', 'created_at' => now(), 'updated_at' => now()]
+            ['movie_id' => 1, 'cinema_id' => 1, 'studio_id' => 1, 'showtime' => '2024-11-25 14:00:00', 'showtime_date' => '19 Nov', 'showtime_hour' => '10.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 1, 'cinema_id' => 1, 'studio_id' => 1, 'showtime' => '2024-11-25 16:00:00', 'showtime_date' => '19 Nov', 'showtime_hour' => '13.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 1, 'cinema_id' => 1, 'studio_id' => 1, 'showtime' => '2024-11-25 18:00:00', 'showtime_date' => '19 Nov', 'showtime_hour' => '16.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 1, 'cinema_id' => 1, 'studio_id' => 1, 'showtime' => '2024-11-25 20:00:00', 'showtime_date' => '19 Nov', 'showtime_hour' => '18.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 1, 'cinema_id' => 2, 'studio_id' => 1, 'showtime' => '2024-11-25 14:00:00', 'showtime_date' => '20 Nov', 'showtime_hour' => '13.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 1, 'cinema_id' => 2, 'studio_id' => 1, 'showtime' => '2024-11-25 16:00:00', 'showtime_date' => '20 Nov', 'showtime_hour' => '16.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 1, 'cinema_id' => 2, 'studio_id' => 1, 'showtime' => '2024-11-25 18:00:00', 'showtime_date' => '20 Nov', 'showtime_hour' => '18.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 1, 'cinema_id' => 2, 'studio_id' => 1, 'showtime' => '2024-11-25 20:00:00', 'showtime_date' => '20 Nov', 'showtime_hour' => '21.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 1, 'cinema_id' => 3, 'studio_id' => 1, 'showtime' => '2024-11-25 14:00:00', 'showtime_date' => '21 Nov', 'showtime_hour' => '16.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 2, 'cinema_id' => 1, 'studio_id' => 1, 'showtime' => '2024-11-25 20:00:00', 'showtime_date' => '22 Nov', 'showtime_hour' => '15.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 3, 'cinema_id' => 1, 'studio_id' => 2, 'showtime' => '2024-11-25 14:00:00', 'showtime_date' => '19 Nov', 'showtime_hour' => '12.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 4, 'cinema_id' => 1, 'studio_id' => 2, 'showtime' => '2024-11-25 14:00:00', 'showtime_date' => '20 Nov', 'showtime_hour' => '10.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 5, 'cinema_id' => 1, 'studio_id' => 3, 'showtime' => '2024-11-25 14:00:00', 'showtime_date' => '19 Nov', 'showtime_hour' => '16.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 6, 'cinema_id' => 1, 'studio_id' => 3, 'showtime' => '2024-11-26 14:00:00', 'showtime_date' => '19 Nov', 'showtime_hour' => '18.00', 'created_at' => now(), 'updated_at' => now()],
+            ['movie_id' => 7, 'cinema_id' => 1, 'studio_id' => 4, 'showtime' => '2024-11-26 14:00:00', 'showtime_date' => '19 Nov', 'showtime_hour' => '20.00', 'created_at' => now(), 'updated_at' => now()]
         ]);
     }
 }

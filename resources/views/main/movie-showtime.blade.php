@@ -24,9 +24,40 @@
                         {{ $movie->rating }}
                     </span>
                 </p>
-                <h3>Schedule</h3>
-                
+                <div>
+                    <h3 class="schedule">Schedule</h3>
+
+                    <div class="schedule-container">
+                        @foreach ($showtime as $cid => $ms)
+                            <p class="showtime-date">{{ $ms->first()->showtime_date }}</p>
+                        @endforeach
+                    </div>
+
+                    <div class="cinema-container">
+                        @foreach ($showtime as $cid => $mc)
+                            <div class="inner-cinema-container">
+                                <p>{{ $mc->first()->cinema->name }}</p>
+                                <p>Rp 60.000</p>
+                            </div>
+                            <p class="cinema-location">{{ $mc->first()->cinema->location }}</p>
+
+                            <div class="showtime-hour-container" style="display: flex;">
+                                @foreach ($mc as $showtime)
+                                    <div class="showtime-hour">
+                                        <p>{{ $showtime->showtime_hour }}</p>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="choose-container">
+                    <a class="choose-seat-button" href="/seats">
+                        Choose Seat
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/showtime.js') }}"></script>
 @endsection
