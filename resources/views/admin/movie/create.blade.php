@@ -138,7 +138,8 @@
     <style>
         .black-dropdown, .black-dropdown option {
             color: black !important;
+            /* background-color: rgb(58, 58, 58); */
         }
     </style>
-    
+
 @endsection

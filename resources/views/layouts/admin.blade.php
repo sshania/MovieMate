@@ -16,7 +16,7 @@
 <body>
     @include('components.navbar')
 
-    <h1>Hi Admin!</h1>
+    <h1 style="font-weight: 700">Hi Admin!</h1>
     <div class="text-center mb-4">
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
             Open Menu
@@ -29,7 +29,7 @@
 
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Menu</h5>
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel" style="font-size: 40px; color:#FCC252; font-weight: 600;">Menu</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">

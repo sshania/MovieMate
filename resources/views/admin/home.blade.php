@@ -4,6 +4,6 @@
 
 @section('content')
 
-<h1>Welcome To Admin Page!</h1>
+<h1 style="font-weight: 500" >Welcome To Admin Page!</h1>
 
 @endsection

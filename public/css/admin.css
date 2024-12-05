@@ -6,7 +6,7 @@
 
 body {
     background-color: black;
-    font-family: 'poppins', sans-serif;
+    font-family: 'poppins', sans-serif !important;
     color: white;
     margin: 0;
     padding: 0;
@@ -14,10 +14,20 @@ body {
     margin-top: 50px;
 }
 
+.content {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+
+h1, h2, h3, h4, h5, h6, p, span, a {
+    font-family: 'Poppins', sans-serif;
+}
+
 h1 {
     text-align: center;
     margin-top: 20px;
     color: #f1f1f1;
+    font-weight: 500;
 }
 
 .offcanvas {

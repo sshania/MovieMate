@@ -30,7 +30,7 @@
             <th>Action</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="text-decoration: none;">
         @foreach ($CinemaList as $cl)
             <tr>
                 <td>{{$loop->iteration}}</td>
@@ -40,7 +40,7 @@
                 <td>{{$cl->contact}}</td>
                 <td>
                     <a href="{{ route('cinema.edit', ['id'=>$cl->id]) }}" class="text-white">
-                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-edit"> </i>
                     </a>
                     <form action="{{ route('cinema.delete', ['id'=> $cl->id])}}" method="POST" style="display:inline;">
                         @csrf
