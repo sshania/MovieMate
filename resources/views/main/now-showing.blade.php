@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
 
-    <div class="now-playing-container" style="margin: 5% auto">
+    <div class="now-showing-container" style="margin: 5% auto">
         <div class="title-with-arrow">
             <a href="/" class="title-link">
                 <span class="arrow"></span>
-                <h1 class="title" id="now-playing">Now Playing</h1>
+                <h1 class="title" id="now-showing">Now Playing</h1>
             </a>
         </div>
         <div class="movies-container">

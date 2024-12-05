@@ -15,7 +15,7 @@ class MovieController extends Controller
             $query->whereDate('showtime', '<=', $today);
         })->where('release_date', '<=', $today)->paginate(8);
 
-        return view('main.now-playing', compact('movieNow'));
+        return view('main.now-showing', compact('movieNow'));
     }
 
     public function upcoming()
