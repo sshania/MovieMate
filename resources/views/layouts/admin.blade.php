@@ -44,7 +44,10 @@
                     <i class="bi bi-person-fill me-2"></i><a href="{{ route('movie.index') }}" class="text-decoration-none text-white">Movie</a>
                 </li>
                 <li class="list-group-item">
-                    <i class="bi bi-person-fill me-2"></i><a href="{{ route('showtime.index') }}" class="text-decoration-none text-white">Booking</a>
+                    <i class="bi bi-person-fill me-2"></i><a href="{{ route('showtime.index') }}" class="text-decoration-none text-white">Showtime</a>
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-person-fill me-2"></i><a href="#" class="text-decoration-none text-white">Booking</a>
                 </li>
             </ul>
         </div>
