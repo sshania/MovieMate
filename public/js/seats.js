@@ -1,8 +1,8 @@
 const container = document.querySelector(".main-container");
 const takenContainer = document.querySelector(".taken");
-const inputContainer = document.querySelector("input[name='seat-name']");
+const inputContainer = document.querySelector("input[name='seat_number']");
 const priceContainer = document.getElementById("price");
-const inputPriceContainer = document.querySelector("input[name='sub-total']");
+const inputPriceContainer = document.querySelector("input[name='sub_total']");
 const seatContainer = document.getElementById("seat-count");
 const inputSeatContainer = document.querySelector("input[name='seat-total']");
 

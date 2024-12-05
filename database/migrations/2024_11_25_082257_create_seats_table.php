@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('studio_id');
+            // $table->unsignedBigInteger('studio_id');
             $table->string('seat_number');
+            $table->string('sub_total');
             $table->timestamps();
 
-            $table->foreign('studio_id')->references('id')->on('studios')->onDelete('cascade');
+            // $table->foreign('studio_id')->references('id')->on('studios')->onDelete('cascade');
         });
     }
 

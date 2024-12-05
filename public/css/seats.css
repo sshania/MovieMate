@@ -196,8 +196,9 @@ body {
     background-color: #FCC252;
 }
 
-.next-button a {
+.next-button button {
     text-decoration: none;
+    background-color: #FCC252;
     color: black;
     font-size: 20px;
 }
