@@ -2,7 +2,7 @@
 <nav class="navbar">
     <div class="logo">
         <a href="/">
-            <img src="../assets/LogoMain.png" alt="Logo" style="margin: 0%">
+            <img src="../../assets/LogoMain.png" alt="Logo" style="margin: 0%">
         </a>
     </div>
     <div class="menu">

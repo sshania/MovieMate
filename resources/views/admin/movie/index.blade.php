@@ -3,17 +3,24 @@
 @section('title', 'Movie Index')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/cinema.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 
 @if (Session::has('status'))
     <div class="alert alert-success" role="alert">
         {{Session::get('message')}}
     </div>
-@else   
-    
+@else
+
 @endif
 
-<a href="{{ route('movie.create') }}">Add Movie</a>
-<table class="table">
+<div class="button-add-container">
+    <a href="{{ route('movie.create') }}" class="btn-add">+</a>
+</div>
+
+
+<table class="theater-table">
     <thead>
         <tr>
             <th>#</th>
@@ -33,12 +40,18 @@
                 <td>{{$ml->duration}}</td>
                 <td>{{$ml->description}}</td>
                 <td>
-                    <a href="{{ route('movie.detail', ['id'=>$ml->id]) }}">detail</a>
-                    <a href="{{ route('movie.edit', ['id'=>$ml->id]) }}">edit</a>
-                    <form action="{{ route('movie.delete', ['id'=> $ml->id])}}" method="POST">
+                    <a href="{{ route('movie.detail', ['id'=>$ml->id]) }}">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                    <a href="{{ route('movie.edit', ['id'=>$ml->id]) }}" class="text-white">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <form action="{{ route('movie.delete', ['id'=> $ml->id])}}" method="POST" style="display:inline;">
                         @csrf
                         @method('delete')
-                        <button>Delete</button>
+                        <button type="submit" class="text-white" style="background:none; border:none; cursor:pointer;">
+                            <i class="fa fa-trash"></i>
+                        </button>
                     </form>
                 </td>
             </tr>
