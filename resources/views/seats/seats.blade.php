@@ -70,7 +70,7 @@
     </div>
 
     <div class="order-container">
-        <form action="" method="POST" id="seat">
+        <form action="/seats" method="POST" id="seat">
             @csrf
                 <div class="order-title"><span id="red">YOUR ORDER</span></div>
                 <div class="order-details">
@@ -84,18 +84,18 @@
                         <img src="" alt="">
                         Seat No:
                     </p>
-                    <input name="seat-name" style="display:none" />
+                    <input name="seat_number" style="display:none" />
                     <div class="taken"></div>
                     <p id="order-price">
                         <img src="" alt="">
                         Total Price:
                         <span id="price"></span>
                     </p>
-                    <input name="sub-total" style="display:none" />
+                    <input name="sub_total" style="display:none" />
                 </div>
                 <div class="button-container">
                     <div class="next-button">
-                        <a href="">Next</a>
+                        <button type="submit" class="btn btn-primary">Next</button>
                     </div>
                 </div>
         </form>
