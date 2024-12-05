@@ -32,7 +32,7 @@ class CinemaController extends Controller
     {
 
         $newCinema = $request->all();
-        $newCinema['total_studios'] = 0;
+        // $newCinema['total_studios'] = 0;
 
         $Cinema = Cinema::create($newCinema);
         if($Cinema){

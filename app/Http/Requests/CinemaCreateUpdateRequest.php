@@ -25,12 +25,16 @@ class CinemaCreateUpdateRequest extends FormRequest
             //
             'name' => 'max:20|required',
             'location' => 'max:50|required',
+            'total_studios' => 'required',
+            'contact' => 'required'
         ];
     }
     public function messages(){
         return [
             'name.required' => 'name wajib diisi',
-            'name.max' => 'name max :max character'
+            'name.max' => 'name max :max character',
+            'total_studios.required' => 'name wajib diisi',
+            'contact.required' => 'name wajib diisi',
         ];
     }
 }

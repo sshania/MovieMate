@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | @yield('title')</title>
     @include('styling/bootstrap')
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;
+    0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div>
-        <h1>Welcome to admin page!</h1>
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">SideBar (with body scrolling)</button>
+    @include('components.navbar')
+
+    <h1>Hi Admin!</h1>
+    <div class="text-center mb-4">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+            Open Menu
+        </button>
     </div>
-    <div>
+
+    <div class="content">
         @yield('content')
     </div>
 
-    <!-- dibawah adalah siderbarnya -->
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <p>Try scrolling the rest of the page to see this option in action.</p>
             <ul class="list-group">
                 <li class="list-group-item">
-                    <a href="{{ route('cinema.index') }}">Cinema</a>
+                    <i class="bi bi-camera-reels me-2"></i><a href="{{ route('cinema.index') }}" class="text-decoration-none text-white">Cinema</a>
                 </li>
                 <li class="list-group-item">
-                    <a href="{{ route('studio.index') }}">Studio</a>
+                    <i class="bi bi-building me-2"></i><a href="{{ route('studio.index') }}" class="text-decoration-none text-white">Studio</a>
                 </li>
                 <li class="list-group-item">
-                    <a href="{{ route('showtime.index') }}">Showtime</a>
+                    <i class="bi bi-person-fill me-2"></i><a href="{{ route('movie.index') }}" class="text-decoration-none text-white">Movie</a>
                 </li>
                 <li class="list-group-item">
-                    <a href="{{ route('movie.index') }}">Movie</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="">Hai</a>
+                    <i class="bi bi-person-fill me-2"></i><a href="{{ route('showtime.index') }}" class="text-decoration-none text-white">Booking</a>
                 </li>
             </ul>
         </div>
     </div>
 
     @include('styling/bootstrapjs')
+    @include('components.footer')
 </body>
-
 </html>

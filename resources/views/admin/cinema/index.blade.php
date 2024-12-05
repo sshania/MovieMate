@@ -3,23 +3,30 @@
 @section('title', 'Cinema Index')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/cinema.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 
 @if (Session::has('status'))
     <div class="alert alert-success" role="alert">
         {{Session::get('message')}}
     </div>
-@else   
-    
+@else
+
 @endif
 
-<a href="{{ route('cinema.create') }}">Add Cinema</a>
-<table class="table">
+<div class="button-add-container">
+    <a href="{{ route('cinema.create') }}" class="btn-add">+</a>
+</div>
+
+<table class="theater-table">
     <thead>
         <tr>
             <th>#</th>
             <th>Name</th>
             <th>Location</th>
             <th>Total Studios</th>
+            <th>Contact</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -30,13 +37,17 @@
                 <td>{{$cl->name}}</td>
                 <td>{{$cl->location}}</td>
                 <td>{{$cl->total_studios}}</td>
+                <td>{{$cl->contact}}</td>
                 <td>
-                    <a href="{{ route('cinema.detail', ['id'=>$cl->id]) }}">detail</a>
-                    <a href="{{ route('cinema.edit', ['id'=>$cl->id]) }}">edit</a>
-                    <form action="{{ route('cinema.delete', ['id'=> $cl->id])}}" method="POST">
+                    <a href="{{ route('cinema.edit', ['id'=>$cl->id]) }}" class="text-white">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <form action="{{ route('cinema.delete', ['id'=> $cl->id])}}" method="POST" style="display:inline;">
                         @csrf
                         @method('delete')
-                        <button>Delete</button>
+                        <button type="submit" class="text-white" style="background:none; border:none; cursor:pointer;">
+                            <i class="fa fa-trash"></i>
+                        </button>
                     </form>
                 </td>
             </tr>
