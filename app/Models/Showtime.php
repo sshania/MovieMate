@@ -31,6 +31,11 @@ class Showtime extends Model
         return $this->belongsTo(Cinema::class, 'cinema_id', 'id');
     }
 
+    public function studio()
+    {
+        return $this->belongsTo(Studio::class);
+    }
+
     public function tickets()
     {
         return $this->hasMany(Ticket::class, 'showtime_id', 'id');
