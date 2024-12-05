@@ -189,6 +189,70 @@ class MovieSeeder extends Seeder
                 'movie_images' => 'forrest_gump.jpg',
                 'created_at' => now(),
                 'updated_at' => now()
+            ],
+            [
+                'title' => 'Guardians of the Galaxy Vol. 3',
+                'rating' => 'D 17+',
+                'duration' => 150,
+                'genre' => 'Action',
+                'producer' => 'Kevin Feige',
+                'director' => 'James Gunn',
+                'writer' => 'James Gunn',
+                'production_house' => 'Marvel Studios',
+                'casts' => 'Chris Pratt, Zoe Saldana, Dave Bautista',
+                'description' => 'The Guardians must fight for their lives and face new enemies while learning more about their origins.',
+                'release_date' => now()->addMonth(rand(1, 12)), // Future release date
+                'movie_images' => 'gotg_vol_3.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Spider-Man: No Way Home',
+                'rating' => 'D 17+',
+                'duration' => 148,
+                'genre' => 'Action',
+                'producer' => 'Kevin Feige',
+                'director' => 'Jon Watts',
+                'writer' => 'Chris McKenna, Erik Sommers',
+                'production_house' => 'Marvel Studios',
+                'casts' => 'Tom Holland, Zendaya, Benedict Cumberbatch',
+                'description' => 'Peter Parker seeks Doctor Strange\'s help to erase the world\'s knowledge of his secret identity, but things go awry.',
+                'release_date' => now()->addMonth(rand(1, 12)), // Future release date
+                'movie_images' => 'spiderman_no_way_home.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'The Flash',
+                'rating' => 'D 17+',
+                'duration' => 155,
+                'genre' => 'Action',
+                'producer' => 'Barbara Muschietti',
+                'director' => 'Andy Muschietti',
+                'writer' => 'John Francis Daley, Jonathan Goldstein',
+                'production_house' => 'Warner Bros.',
+                'casts' => 'Ezra Miller, Michael Keaton, Ben Affleck',
+                'description' => 'Barry Allen uses his superpowers to travel through time to change the past, but his actions have unintended consequences.',
+                'release_date' => now()->addMonth(rand(1, 12)), // Future release date
+                'movie_images' => 'the_flash.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Avatar 2',
+                'rating' => 'R 13+',
+                'duration' => 160,
+                'genre' => 'Sci-Fi',
+                'producer' => 'James Cameron',
+                'director' => 'James Cameron',
+                'writer' => 'James Cameron',
+                'production_house' => '20th Century Fox',
+                'casts' => 'Sam Worthington, Zoe Saldana, Sigourney Weaver',
+                'description' => 'Jake Sully and Neytiri face new challenges and explore the oceans of Pandora in the highly anticipated sequel.',
+                'release_date' => now()->addMonth(rand(1, 12)), // Future release date
+                'movie_images' => 'avatar_2.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ]);
     }

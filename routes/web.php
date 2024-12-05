@@ -19,6 +19,9 @@ use App\Http\Controllers\TicketController;
 
 Route::get('/', [MovieController::class, 'index']);
 
+Route::get('/now-playing', [MovieController::class, 'nowPlaying'])->name('now-playing');
+Route::get('/upcoming', [MovieController::class, 'upcoming'])->name('upcoming');
+
 Route::get('/profile', function () {
     return view('main.profile');
 });

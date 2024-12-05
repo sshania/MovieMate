@@ -8,6 +8,24 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
+    public function nowPlaying()
+    {
+        $today = Carbon::today();
+        $movieNow = Movie::with('showtimes')->whereHas('showtimes', function($query) use($today) {
+            $query->whereDate('showtime', '<=', $today);
+        })->where('release_date', '<=', $today)->paginate(8);
+
+        return view('main.now-playing', compact('movieNow'));
+    }
+
+    public function upcoming()
+    {
+        $today = Carbon::today();
+        $movieUp = Movie::with('showtimes')->where('release_date', '>', $today)->paginate(8);
+
+        return view('main.upcoming', compact('movieUp'));
+    }
+
     public function findByID($id){
         $movie = Movie::findOrFail($id);
         return view('main/movie-detail', compact('movie'));
@@ -16,29 +34,30 @@ class MovieController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
-        $today = Carbon::today();
+{
+    $today = Carbon::today();
 
-        $movieCarousel = Movie::with('showtimes')->whereHas('showtimes', function($query) use($today){
-            $query->whereDate('showtime', '<=', $today);
-        })->limit(5)->get();
+    $movieCarousel = Movie::with('showtimes')->whereHas('showtimes', function($query) use($today) {
+        $query->whereDate('showtime', '<=', $today);
+    })->limit(5)->get();
 
-        $movieNow = Movie::with('showtimes')->whereHas('showtimes', function($query) use($today){
-            $query->whereDate('showtime', '<=', $today);
-        })->paginate(8);
+    $movieNow = Movie::with('showtimes')->whereHas('showtimes', function($query) use($today) {
+        $query->whereDate('showtime', '<=', $today);
+    })->where('release_date', '<=', $today)->paginate(8);
 
-        $movieUp = Movie::with('showtimes')->where('release_date', '>' , $today)->paginate(8);
-        // $movieUp = Movie::with('showtimes')->where('release_date', '<', $today)->paginate(8);
+    $movieUp = Movie::with('showtimes')->where('release_date', '>' , $today)->get();
 
-        // yg diatas pke 'showtimes' buat cek data bener apa kgaa, klo dh aman nanti pke yg bawah aja
-        // $movieNow = Movie::whereHas('showtimes', function($query) use($today){
-        //     $query->whereDate('showtime', $today);
-        // })->get();
-        // $movieUp = Movie::where('release_date', '>' , $today)->get();
+    $initialUpcomingMovies = $movieUp->take(4); // Get first 4 upcoming movies
+    $remainingUpcomingMovies = $movieUp->slice(4); // Get remaining movies
 
-        return view('main/home', ['movieCarousel' => $movieCarousel, 'movieNow' => $movieNow, 'movieUp' => $movieUp]);
-    }
+    return view('main/home', [
+        'movieCarousel' => $movieCarousel,
+        'movieNow' => $movieNow,
+        'initialUpcomingMovies' => $initialUpcomingMovies,
+        'remainingUpcomingMovies' => $remainingUpcomingMovies,
+    ]);
+}
+
 
     public function booking(){
         $today = Carbon::today();

@@ -57,10 +57,10 @@
 
         <div class="now-playing-container">
             <div class="title-with-arrow">
-            <a href="/your-target-page" class="title-link">
-                <span class="arrow"></span>
-                <h1 class="title" id="now-playing">Now Playing</h1>
-            </a>
+                <a href="{{ route('now-playing') }}" class="title-link">
+                    <span class="arrow"></span>
+                    <h1 class="title">Now Playing</h1>
+                </a>
             </div>
             <div class="movies-container">
                 <div class="movies">
@@ -86,39 +86,66 @@
             </div>
         </div>
 
-        <div class="upcoming-container">
-            <div class="title-with-arrow">
-            <a href="/your-target-page" class="title-link">
-                <span class="arrow"></span>
-                <h1 class="title" id="upcoming">Upcoming</h1>
-            </a>
-            </div>
-            <div class="movies-container">
-                <div class="movies">
-                    @foreach ($movieUp as $mu)
-                        <a href="/movies/{{ $mu->id }}" class="movie-link">
-                            <div class="movie-container">
-                                <div class="movie-card">
-                                    <div class="movie">
-                                        <image src="{{ asset('poster/' . $mu->movie_images) }}" alt="{{$mu->title}}" class="movie-image"></image>
-                                    </div>
-                                </div>
-                                <div class="movie-text">
-                                    <h3 class="movie-title">{{$mu->title}}</h3>
-                                    <span class="movie-rating {{ $mu->rating }}">
-                                        {{ $mu->rating }}
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    @endforeach
-                </div>
-                {{ $movieUp->links() }}
-            </div>
-        </div>
-
-
+    <div class="upcoming-container">
+    <div class="title-with-arrow">
+        <a href="{{ route('upcoming') }}" class="title-link">
+        <span class="arrow"></span>
+            <h1 class="title">Upcoming</h1>
+        </a>
     </div>
+    <div class="movies-container">
+        <div class="movies">
+            @foreach ($initialUpcomingMovies as $mu)
+                <a href="/movies/{{ $mu->id }}" class="movie-link">
+                    <div class="movie-container">
+                        <div class="movie-card">
+                            <div class="movie">
+                                <image src="{{ asset('poster/' . $mu->movie_images) }}" alt="{{$mu->title}}" class="movie-image"></image>
+                            </div>
+                        </div>
+                        <div class="movie-text">
+                            <h3 class="movie-title">{{$mu->title}}</h3>
+                            <span class="movie-rating {{ $mu->rating }}">
+                                {{ $mu->rating }}
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+        <button id="see-more" class="see-more-btn">See More</button>
+    </div>
+
+    <div class="movies-container remaining-movies hidden">
+        <div class="movies">
+            @foreach ($remainingUpcomingMovies as $mu)
+                <a href="/movies/{{ $mu->id }}" class="movie-link">
+                    <div class="movie-container">
+                        <div class="movie-card">
+                            <div class="movie">
+                                <image src="{{ asset('poster/' . $mu->movie_images) }}" alt="{{$mu->title}}" class="movie-image"></image>
+                            </div>
+                        </div>
+                        <div class="movie-text">
+                            <h3 class="movie-title">{{$mu->title}}</h3>
+                            <span class="movie-rating {{ $mu->rating }}">
+                                {{ $mu->rating }}
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('see-more').addEventListener('click', function() {
+        var remainingMovies = document.querySelector('.remaining-movies');
+        remainingMovies.classList.remove('hidden'); // Show the additional movies
+        this.classList.add('hidden'); // Hide the button itself
+    });
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 @endsection
