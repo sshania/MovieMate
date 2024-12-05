@@ -1,13 +1,12 @@
-
-:root{
-    --red : #B0181C;
-    --darkerred : #7E1616;
-    --yellow : #FCC252;
+:root {
+    --red: #b0181c;
+    --darkerred: #7e1616;
+    --yellow: #fcc252;
 }
 
 body {
     background-color: black;
-    font-family: 'poppins', sans-serif;
+    font-family: "poppins", sans-serif;
     color: white;
     margin: 0;
     padding: 0;
@@ -15,7 +14,7 @@ body {
     margin-top: 50px;
 }
 
-.now-playing-container{
+.now-showing-container {
     padding: 20px;
 }
 
@@ -23,7 +22,7 @@ body {
     margin-left: 1.5%;
 }
 
-.carousel-container{
+.carousel-container {
     margin-top: 100px;
 }
 
@@ -37,7 +36,7 @@ body {
     /* align-items: start; */
 }
 
-.movie-container{
+.movie-container {
     /* display: flex; */
     justify-content: center;
     align-items: center;
@@ -55,14 +54,14 @@ body {
     text-align: center;
 }
 
-.movie-card{
+.movie-card {
     /* background-color: tomato; */
     padding: 20px;
     /* margin-bottom: 20px; */
     /* top:0; */
 }
 
-.movie-image{
+.movie-image {
     /* display: flex;
     justify-content: center;
     align-items: center;
@@ -77,7 +76,7 @@ body {
     margin-top: 20px;
 }
 
-.title{
+.title {
     font-weight: 700;
     font-size: 40px;
     margin: 10px;
@@ -93,18 +92,18 @@ body {
 }
 
 .movie-rating[class*="D 17+"] {
-    background-color: #B0181C;
+    background-color: #b0181c;
 }
 
 .movie-rating[class*="R 13+"] {
-    background-color: #2A5489;
+    background-color: #2a5489;
 }
 
 .movie-rating[class*="SU"] {
     background-color: #4caf50;
 }
 
-.title-booking{
+.title-booking {
     color: var(--yellow);
     margin-left: 27px;
     text-decoration: none;
@@ -113,7 +112,7 @@ body {
     margin: 10px;
 }
 
-.title-booking span{
+.title-booking span {
     text-decoration: none;
     color: var(--red);
 }

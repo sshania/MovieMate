@@ -55,9 +55,9 @@
 
         </div>
 
-        <div class="now-playing-container">
+        <div class="now-showing-container">
             <div class="title-with-arrow">
-                <a href="{{ route('now-playing') }}" class="title-link">
+                <a href="{{ route('now-showing') }}" class="title-link">
                     <span class="arrow"></span>
                     <h1 class="title">Now Playing</h1>
                 </a>

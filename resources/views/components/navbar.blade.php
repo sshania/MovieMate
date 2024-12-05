@@ -6,8 +6,8 @@
         </a>
     </div>
     <div class="menu">
-        <a href="/">NOW SHOWING</a>
-        <a href="/">UPCOMING</a>
+        <a href="/now-showing">NOW SHOWING</a>
+        <a href="/upcoming">UPCOMING</a>
         <a href="/cinema">THEATER</a>
         <a href="{{ Auth::check() && Auth::user()->role == 2 ? '/admin' : '/booking' }}">
             {{ Auth::check() && Auth::user()->role == 2 ? 'DASHBOARD' : 'BOOKING' }}

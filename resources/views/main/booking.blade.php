@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="{{asset('css/booking.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
 
-    <div class="now-playing-container">
-        <h1 class="title-booking" id="now-playing"><span>Choose</span> A Movie</h1>
+    <div class="now-showing-container">
+        <h1 class="title-booking" id="now-showing"><span>Choose</span> A Movie</h1>
         <div class="movies">
             @foreach ($movieNow as $mn)
             <a href="/movies/{{ $mn->id }}">
