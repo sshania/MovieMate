@@ -1,6 +1,6 @@
 @extends('layouts/admin')
 
-@section('title', 'Detail')
+@section('title', 'Cinema Detail')
 
 @section('content')
 

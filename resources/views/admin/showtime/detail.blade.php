@@ -1,10 +1,10 @@
 @extends('layouts/admin')
 
-@section('title', 'Detail')
+@section('title', 'Showtime Detail')
 
 @section('content')
 
-<h1>This is cinema detail</h1>
+<h1>This is showtime detail</h1>
 
 <div>
     {{$showtimeDetail}}
