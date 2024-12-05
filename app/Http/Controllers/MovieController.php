@@ -66,6 +66,16 @@ class MovieController extends Controller
         return view('main/booking', ['movieNow' => $movieNow]);
     }
 
+    public function adminIndex(){
+        $movies = Movie::get();
+        return view('admin.movie.index', ['movieList' => $movies]);
+    }
+
+    public function adminShow($id){
+        $movie = Movie::findOrFail($id);
+        return view('admin.movie.detail', ['movieDetail'=>$movie]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -143,24 +153,58 @@ class MovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Movie $movie)
+    public function edit($id)
     {
         //
+        $movie = Movie::findOrFail($id);
+        return view('admin/movie/edit', ['movieData' => $movie]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Movie $movie)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'rating' => 'required|in:SU,R 13+,D 17+',
+            'duration' => 'required|integer',
+            'genre' => 'required|string|max:255',
+            'producer' => 'required|string|max:255',
+            'director' => 'required|string|max:255',
+            'writer' => 'required|string|max:255',
+            'production_house' => 'required|string|max:255',
+            'casts' => 'required|string',
+            'description' => 'required|string',
+            'release_date' => 'required|date',
+            'movie_images' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000',
+        ]);
+
+        $oldMovie = Movie::findOrFail($id);
+        $oldMovie->update($request->all());
+
+        $imagePath = time().'.' .$request->movie_images->extension();
+        $request->movie_images->move(public_path('poster'), $imagePath);
+
+        return redirect(route('movie.index'))->with([
+            'status' => 'success',
+            'message' => 'Movie berhasil di update',
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Movie $movie)
+    public function destroy($id)
     {
         //
+        $oldMovie = Movie::findOrFail($id);
+        $oldMovie->delete();
+
+        return redirect(route('movie.index'))->with([
+            'status' => 'success',
+            'message' => 'Movie berhasil di hapus',
+        ]);
     }
 }

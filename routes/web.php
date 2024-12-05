@@ -82,4 +82,12 @@ Route::prefix('/admin')->group(function(){
     Route::get('/showtime-edit/{id}', [ShowtimeController::class, 'edit'])->name('showtime.edit');
     Route::put('/showtime-update/{id}', [ShowtimeController::class, 'update'])->name('showtime.update');
     Route::delete('/showtime-destroy/{id}', [ShowtimeController::class, 'destroy'])->name('showtime.delete');
+    
+    Route::get('/movie', [MovieController::class, 'adminIndex'])->name('movie.index');
+    Route::get('/movie/{id}', [MovieController::class, 'adminShow'])->name('movie.detail');
+
+
+    Route::get('/movie-edit/{id}', [MovieController::class, 'edit'])->name('movie.edit');
+    Route::put('/movie-update/{id}', [MovieController::class, 'update'])->name('movie.update');
+    Route::delete('/movie-destroy/{id}', [MovieController::class, 'destroy'])->name('movie.delete');
 });

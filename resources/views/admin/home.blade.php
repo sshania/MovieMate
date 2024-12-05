@@ -1,6 +1,6 @@
 @extends('layouts/admin')
 
-@section('title', 'Home');
+@section('title', 'Admin Dashboard');
 
 @section('content')
 
