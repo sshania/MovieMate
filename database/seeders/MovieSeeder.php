@@ -121,7 +121,7 @@ class MovieSeeder extends Seeder
                 'production_house' => '20th Century Fox',
                 'casts' => 'Leonardo DiCaprio, Kate Winslet, Billy Zane',
                 'description' => 'A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.',
-                'release_date' => now()->subMonth(rand(1, 12)),
+                'release_date' => now()->addMonth(rand(1, 12)),
                 'movie_images' => 'titanic.jpg',
                 'created_at' => now(),
                 'updated_at' => now()
@@ -185,7 +185,7 @@ class MovieSeeder extends Seeder
                 'production_house' => 'Paramount Pictures',
                 'casts' => 'Tom Hanks, Robin Wright, Gary Sinise',
                 'description' => 'The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold from the perspective of an Alabama man with an IQ of 75.',
-                'release_date' => now()->subMonth(rand(1, 12)),
+                'release_date' => now()->addMonth(rand(1, 12)),
                 'movie_images' => 'forrest_gump.jpg',
                 'created_at' => now(),
                 'updated_at' => now()
@@ -251,6 +251,38 @@ class MovieSeeder extends Seeder
                 'description' => 'Jake Sully and Neytiri face new challenges and explore the oceans of Pandora in the highly anticipated sequel.',
                 'release_date' => now()->addMonth(rand(1, 12)), // Future release date
                 'movie_images' => 'avatar_2.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'John Wick: Chapter 4',
+                'rating' => 'D 17+',
+                'duration' => 169,
+                'genre' => 'Action, Crime, Thriller',
+                'producer' => 'Basil Iwanyk, Chad Stahelski',
+                'director' => 'Chad Stahelski',
+                'writer' => 'Shay Hatten, Michael Finch',
+                'production_house' => 'Lionsgate',
+                'casts' => 'Keanu Reeves, Donnie Yen, Bill Skarsgård',
+                'description' => 'John Wick uncovers a path to defeating The High Table, but before he can earn his freedom, he must face off against old enemies with new allies.',
+                'release_date' => now()->addMonth(rand(1, 12)),
+                'movie_images' => 'john_wick_4.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Barbie',
+                'rating' => 'R 13+',
+                'duration' => 114,
+                'genre' => 'Comedy, Fantasy',
+                'producer' => 'Margot Robbie, Tom Ackerley',
+                'director' => 'Greta Gerwig',
+                'writer' => 'Greta Gerwig, Noah Baumbach',
+                'production_house' => 'Warner Bros. Pictures',
+                'casts' => 'Margot Robbie, Ryan Gosling, Simu Liu',
+                'description' => 'A Barbie doll is expelled from Barbieland for not being perfect enough, and sets off on an adventure in the real world.',
+                'release_date' => now()->addMonth(rand(1, 12)),
+                'movie_images' => 'barbie.jpg',
                 'created_at' => now(),
                 'updated_at' => now()
             ]

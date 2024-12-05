@@ -21,7 +21,7 @@ class MovieController extends Controller
     public function upcoming()
     {
         $today = Carbon::today();
-        $movieUp = Movie::with('showtimes')->where('release_date', '>', $today)->paginate(8);
+        $movieUp = Movie::with('showtimes')->where('release_date', '>', $today)->paginate(16);
 
         return view('main.upcoming', compact('movieUp'));
     }
