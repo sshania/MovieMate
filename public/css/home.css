@@ -1,3 +1,9 @@
+:root {
+    --red: #b0181c;
+    --darkerred: #7e1616;
+    --yellow: #fcc252;
+}
+
 body {
     background-color: #333333;
     font-family: "Poppins", sans-serif;
@@ -166,4 +172,20 @@ body {
 
 .remaining-movies {
     margin-bottom: 10%;
+}
+
+.title-booking {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 10px;
+    text-transform: uppercase;
+    color: white; /* Default color for the entire title */
+}
+
+.choose {
+    color: var(--yellow); /* Color for the "Choose" text */
+}
+
+.movie {
+    color: var(--darkerred); /* Color for the "A Movie" text */
 }
