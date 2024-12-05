@@ -47,10 +47,10 @@ Route::get('/movies/{id}', [MovieController::class, 'show']);
 Route::get('/ticket', [TicketController::class, 'index'])->name('user.ticket.index');
 
 // buy ticket
-Route::get('/movie/{id}',[MovieController::class, 'findMovieByID'])->name('user.movie.detail');
-Route::get('/movie/{id}/showtimes', [MovieController::class, 'findShowtimeByID'])->name('user.movie.showtime');
+Route::get('/movie/{id}',[MovieController::class, 'findByID'])->name('user.movie.detail');
+Route::get('/movie/{id}/showtimes', [ShowtimeController::class, 'findByMovieID'])->name('user.movie.showtime');
 
-Route::get('/studio/{id}/seats', [StudioController::class, 'findSdByStID'])->name('user.studio.seat');
+Route::get('/studio/{id}/seats', [SeatController::class, 'findByStID'])->name('user.studio.seat');
 Route::post('/ticket-store', [TicketController::class, 'store'])->name('user.ticket.store');
 
 Route::prefix('/admin')->group(function(){
