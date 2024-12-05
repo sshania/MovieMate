@@ -19,7 +19,7 @@
         @csrf
         <div class="mb-3">
             <label for="cinema_id">Cinema Name</label>
-            <select name="cinema_id" id="class" class="form-control">
+            <select name="cinema_id" id="class" class="form-control black-dropdown">
                 <option value="">Select One</option>
                 @foreach ($cinemaList as $cl)
                     <option value="{{$cl->id}}">{{$cl->name}}</option>
@@ -33,11 +33,22 @@
         </div>
 
         <div class="mb-3">
+            <label for="total_seats">Total Seats</label>
+            <input type="text" class="form-control" name="total_seats">
+        </div>
+
+        <div class="mb-3">
             <button class="btn btn-success" type="submit">Add</button>
         </div>
 
     </form>
 
 </div>
+
+<style>
+    .black-dropdown, .black-dropdown option {
+        color: black !important;
+    }
+</style>
 
 @endsection

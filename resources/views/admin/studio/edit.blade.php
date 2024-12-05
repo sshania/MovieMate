@@ -23,7 +23,7 @@
             <select name="cinema_id" class="form-control">
                 <option value="{{$studioData->cinema->id}}">{{$studioData->cinema->name}}</option>
                 @foreach ($cinemaList as $cl)
-                    @unless ($cl->id == $studioData->cinema->id) 
+                    @unless ($cl->id == $studioData->cinema->id)
                         <option value="{{$cl->id}}">{{$cl->name}}</option>
                     @endunless
                 @endforeach
@@ -36,9 +36,13 @@
         </div>
 
         <div class="mb-3">
-            <button class="btn btn-success" type="submit">Edit</button>
+            <label for="total_seats">Total Seats</label>
+            <input type="text" class="form-control" name="total_seats" id="total_seats" value="{{$studioData->total_seats}}">
         </div>
 
+        <div class="mb-3">
+            <button class="btn btn-success" type="submit">Edit</button>
+        </div>
     </form>
 
 </div>
