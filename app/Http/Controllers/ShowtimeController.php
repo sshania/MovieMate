@@ -2,11 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use App\Models\Showtime;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ShowtimeController extends Controller
 {
+    public function findByMovieID($id){
+        // $movie = Movie::with(['showtimes' => function($query) {
+        //     $query->where('showtime', '>', Carbon::now());
+        // }, 'showtimes.studio.cinema'])
+        // ->findOrFail($id);
+
+        $movie = Movie::with('showtimes')
+        ->findOrFail($id);
+
+        $groupedByCinema = $movie->showtimes->groupBy(function($showtime) {
+            return $showtime->studio->cinema->name;
+        });
+
+        return view('main/movie-showtime', compact('movie', 'groupedByCinema'));
+    }
+
     /**
      * Display a listing of the resource.
      */
