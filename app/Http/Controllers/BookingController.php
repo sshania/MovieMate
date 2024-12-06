@@ -62,6 +62,22 @@ class BookingController extends Controller
     }
 
 
+    public function updatePaymentStatus(Request $request)
+    {
+        $bookingId = $request->input('booking_id');
+
+        $booking = Booking::find($bookingId);
+
+        if ($booking) {
+            $booking->payment_status = true;
+            $booking->save();
+
+            return redirect()->route('payment.success')->with('message', 'Payment successful!');
+        }
+
+        return redirect()->route('payment.failed')->with('message', 'Booking not found.');
+    }
+    
     public function update(Request $request, $id)
     {
         $booking = Booking::findOrFail($id);

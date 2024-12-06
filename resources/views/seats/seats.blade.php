@@ -79,7 +79,7 @@
     </div>
 
     <div class="order-container">
-        <form action="/seats" method="POST" id="seat">
+        <form action="/payment-create" method="POST" id="seat">
             @csrf
 
             <input type="hidden" name="movie_id" value="{{ request('movie_id') }}">
@@ -109,9 +109,9 @@
                     <input name="sub_total" style="display:none" />
                 </div>
                 <div class="button-container">
-                    <div class="next-button">
-                        <button type="submit" class="btn btn-primary">Next</button>
-                    </div>
+                        <div class="next-button">
+                            <button type="submit" class="btn btn-primary">Next</button>
+                        </div>
                 </div>
         </form>
     </div>

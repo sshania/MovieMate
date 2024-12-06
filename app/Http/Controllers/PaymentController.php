@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -18,9 +19,14 @@ class PaymentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $movieId = $request->input('movie_id');
+        $cinemaId = $request->input('cinema_id');
+        $showtimeId = $request->input('showtime_id');
+        $bookingId  = Booking::findOrFail($id); 
+
+        return view('main.payment', compact('movieId', 'cinemaId', 'showtimeId'));
     }
 
     /**
