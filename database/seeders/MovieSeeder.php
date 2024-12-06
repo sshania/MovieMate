@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Movie;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -287,5 +288,7 @@ class MovieSeeder extends Seeder
                 'updated_at' => now()
             ]
         ]);
+
+        Movie::factory()->count(10)->create();
     }
 }

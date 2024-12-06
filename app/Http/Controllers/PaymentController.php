@@ -45,7 +45,7 @@ class PaymentController extends Controller
             $cinemaId = $request->input('cinema_id');
             $showtimeId = $request->input('showtime_id');
             $booking = Booking::create([
-                        'user_id' => 1,
+                        'user_id' => auth()->id(),
                         'movie_id' => $request->movie_id,
                         'cinema_id' => $request->cinema_id,
                         'showtime_id' => $request->showtime_id,

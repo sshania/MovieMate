@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Showtime;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -30,5 +31,7 @@ class ShowtimeSeeder extends Seeder
             ['movie_id' => 6, 'cinema_id' => 1, 'studio_id' => 3, 'showtime' => '2024-11-26 14:00:00', 'showtime_date' => '19 Nov', 'showtime_hour' => '18.00', 'created_at' => now(), 'updated_at' => now()],
             ['movie_id' => 7, 'cinema_id' => 1, 'studio_id' => 4, 'showtime' => '2024-11-26 14:00:00', 'showtime_date' => '19 Nov', 'showtime_hour' => '20.00', 'created_at' => now(), 'updated_at' => now()]
         ]);
+
+        Showtime::factory()->count(30)->create();
     }
 }
