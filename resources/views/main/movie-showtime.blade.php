@@ -43,16 +43,23 @@
 
                             <div class="showtime-hour-container" style="display: flex;">
                                 @foreach ($mc as $showtime)
-                                    <div class="showtime-hour">
+                                    {{-- <div class="showtime-hour">
+                                        <p>{{ $showtime->showtime_hour }}</p>
+                                    </div> --}}
+                                    <div class="showtime-hour"
+                                        data-cinema-id="{{ $showtime->cinema->id }}"
+                                        data-showtime-hour="{{ $showtime->showtime_hour }}"
+                                        data-showtime-date="{{ $showtime->showtime_date }}">
                                         <p>{{ $showtime->showtime_hour }}</p>
                                     </div>
+
                                 @endforeach
                             </div>
                         @endforeach
                     </div>
                 </div>
                 <div class="choose-container">
-                    <a class="choose-seat-button" href="/seats">
+                    <a  id="choose-seat-button" class="choose-seat-button" href="/seats?cinema_id={{ $mc->first()->cinema->id }}">
                         Choose Seat
                     </a>
                 </div>
