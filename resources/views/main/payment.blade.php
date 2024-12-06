@@ -47,7 +47,8 @@
                         <p>Total Seats</p>
                     </div>
                     <div>
-                        <img src="" alt=">">
+                        <p>Total Price</p>
+                        <p>Total</p>
                     </div>
                 </div>
             </div>
