@@ -13,7 +13,7 @@
         <a href="{{ route('studio.index') }}" class="sidebar-link">Studio</a>
         <a href="{{ route('movie.index') }}" class="sidebar-link active">Movie</a>
         <a href="{{ route('showtime.index') }}" class="sidebar-link">Showtime</a>
-        <a href="#" class="sidebar-link">Booking</a>
+        <a href="{{ route('booking.index') }}" class="sidebar-link">Booking</a>
     </div>
 
     <div class="main-content">
@@ -46,7 +46,7 @@
                 <tr>
                     <td>{{ $booking->id }}</td>
                     <td>{{ $booking->user->email }}</td>
-                    <td>{{ $booking->movie->name }}</td>
+                    <td>{{ $booking->movie->title }}</td>
                     <td>{{ $booking->cinema->name }}</td>
                     <td>{{ $booking->showtime->date }} - {{ $booking->showtime->hour }}</td>
                     {{-- <td>{{ implode(', ', $booking->chosen_seat) }}</td> --}}
@@ -54,8 +54,16 @@
                     <td>{{ $booking->total_price }}</td>
                     <td>{{ $booking->payment_status ? 'Paid' : 'Pending' }}</td>
                     <td>
-                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="{{ route('booking.edit', ['id'=>$booking->id]) }}" class="text-white">
+                            <i class="fa fa-edit"> </i>
+                        </a>
+                        <form action="{{ route('booking.delete', ['id'=> $booking->id])}}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="text-white" style="background:none; border:none; cursor:pointer;">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

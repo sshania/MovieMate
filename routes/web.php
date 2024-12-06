@@ -122,7 +122,9 @@ Route::prefix('/admin')->group(function(){
 
     Route::get('/bookings', [BookingController::class, 'index'])->name('booking.index');
     Route::get('/bookings-create', [BookingController::class, 'create'])->name('booking.create');
-    Route::post('/booking-store', [ShowtimeController::class, 'store'])->name('booking.store');
-    Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
+    Route::post('/booking-store', [BookingControllerr::class, 'store'])->name('booking.store');
+    Route::get('/bookings-edit/{id}', [BookingController::class, 'edit'])->name('booking.edit');
+    Route::put('/bookings-update/{id}', [BookingController::class, 'update'])->name('booking.update');
+    Route::delete('/bookings-destroy/{id}', [BookingController::class, 'destroy'])->name('booking.delete');
 });
 
