@@ -8,6 +8,7 @@
     border: none;
     text-decoration: none;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .footer .menu a {
@@ -24,6 +25,9 @@
 
 .footer .logo {
     margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footerOne {
@@ -34,16 +38,25 @@
 }
 
 .footer .logo-image {
-    max-width: 200px;
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+    max-width: 22%;
+    height: auto;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .footerbawah {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
-.footerKiri{
+.footerKiri, .social-media {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 0;
+}
+
+.footerKiri {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -51,8 +64,8 @@
     margin-left: 1%;
 }
 
-.footerKiri p{
-    max-width: 70%;
+.footerKiri p {
+    max-width: 85%;
 }
 
 .footer .links a {
@@ -69,12 +82,14 @@
 
 .footer .copyright {
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 10px;
+    width: 100%;
 }
+
 .social-media {
-    flex: 1;
-    text-align: center;
+    text-align: right;
+    margin-right: 1%;
 }
 
 .social-media .social-title {
@@ -82,12 +97,14 @@
     font-weight: bold;
     margin-bottom: 10px;
     display: block;
+    text-align: right;
 }
 
 .social-media-logo {
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    justify-content: flex-end;
+    gap: 10px;
+    transition: all 0.3s ease-in-out;
 }
 
 .social-media-logo .circle {
@@ -102,7 +119,6 @@
     text-decoration: none;
     color: #FFFEAD;
     transition: all 0.3s ease-in-out;
-    font-size: 20px;
 }
 
 .social-media-logo .circle:hover {
@@ -110,3 +126,47 @@
     color: #8B0000;
 }
 
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer .logo-image {
+        max-width: 50%;
+    }
+
+    .footerOne {
+        width: 100%;
+    }
+
+    .footerbawah {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerKiri, .social-media {
+        text-align: center;
+    }
+
+    .footerKiri p {
+        max-width: 100%;
+    }
+
+    .social-media {
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .social-media .social-title {
+        text-align: center;
+    }
+
+    .social-media-logo {
+        justify-content: center;
+    }
+
+    .footer .copyright {
+        width: auto;
+    }
+}
