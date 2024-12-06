@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="mt-5 col-8 m-auto">
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -15,40 +15,35 @@
         </div>
     @endif
 
-    <form action="{{ route('studio.store')}}" method="POST">
-        @csrf
-        <div class="mb-3">
-            <label for="cinema_id">Cinema Name</label>
-            <select name="cinema_id" id="class" class="form-control black-dropdown">
-                <option value="">Select One</option>
-                @foreach ($cinemaList as $cl)
-                    <option value="{{$cl->id}}">{{$cl->name}}</option>
-                @endforeach
-            </select>
-        </div>
+    <div class="card p-4 shadow-lg" style="background-color: #1c1c1c; color: #fff; border-radius: 10px; max-width: 600px; width: 100%;">
+        <h2 class="text-center" style="color: #ff4747; font-weight: bold;">Add New Studio</h2>
+        <form action="{{ route('studio.store')}}" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="cinema_id" class="form-label" style="font-weight: bold;">Cinema Name</label>
+                <select name="cinema_id" id="cinema_id" class="form-control" style="background-color: #2c2c2c; color: #fff; border: none; border-radius: 5px;">
+                    <option value="">Select One</option>
+                    @foreach ($cinemaList as $cl)
+                        <option value="{{$cl->id}}">{{$cl->name}}</option>
+                    @endforeach
+                </select>
+            </div>
 
-        <div class="mb-3">
-            <label for="studio_number">Studio Number</label>
-            <input type="text" class="form-control" name="studio_number">
-        </div>
+            <div class="mb-3">
+                <label for="studio_number" class="form-label" style="font-weight: bold;">Studio Number</label>
+                <input type="text" class="form-control" name="studio_number" style="background-color: #2c2c2c; color: #fff; border: none; border-radius: 5px;">
+            </div>
 
-        <div class="mb-3">
-            <label for="total_seats">Total Seats</label>
-            <input type="text" class="form-control" name="total_seats">
-        </div>
+            <div class="mb-3">
+                <label for="total_seats" class="form-label" style="font-weight: bold;">Total Seats</label>
+                <input type="text" class="form-control" name="total_seats" style="background-color: #2c2c2c; color: #fff; border: none; border-radius: 5px;">
+            </div>
 
-        <div class="mb-3">
-            <button class="btn btn-success" type="submit">Add</button>
-        </div>
-
-    </form>
-
+            <div class="d-grid">
+                <button class="btn btn-danger" type="submit" style="background-color: #ff4747; border: none; font-weight: bold; border-radius: 5px;">Add</button>
+            </div>
+        </form>
+    </div>
 </div>
-
-<style>
-    .black-dropdown, .black-dropdown option {
-        color: black !important;
-    }
-</style>
 
 @endsection

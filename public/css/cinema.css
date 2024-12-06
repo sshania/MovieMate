@@ -52,7 +52,9 @@ h1 {
 
 .content {
     margin: 20px auto;
-    padding: 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 1600px;
 }
@@ -88,23 +90,10 @@ h1 {
     color: var(--text-white);
 }
 
-.admin-header {
-    text-align: left; /* Align the text to the left */
-    padding: 20px 10px; /* Add spacing above and below, with padding on the left */
-    background-color: var(--background-dark); /* Match the dark theme */
-    color: var(--text-white); /* White text for contrast */
-}
-
-.admin-header h2 {
-    font-size: 2.5rem; /* Make the text large */
-    margin: 0; /* Remove default margin */
-    font-weight: semi-bold; /* Make it stand out */
-}
-
 /* Container for the entire admin layout */
 .admin-container {
     display: flex;
-    height: 80vh;
+    height: 100vh;
     border-radius: 25px;
     overflow: hidden; /* Prevent content overflow */
 }
@@ -112,104 +101,49 @@ h1 {
 /* Sidebar Styling */
 .sidebar {
     width: 250px;
-    background-color: #333;
+    background-color: #333; /* Grey background for the sidebar */
     color: var(--text-white);
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     border-radius: 25px 0 0 25px;
-    height: auto;
-    position: relative;
+    height: 100vh;
+    position: fixed;
 }
 
 .sidebar-link {
-    color: white;
+    color: var(--text-white);
     text-decoration: none;
-    margin: 0;
+    margin: 10px 0;
     font-size: 16px;
-    padding: 15px 20px; /* Add padding for spacing */
-    border-radius: 15px;
+    padding: 10px;
+    border-radius: 4px;
     transition: background-color 0.3s;
-    display: flex; /* Align icon and text */
-    align-items: center;
-    width: 100%; /* Make the button span the full width */
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
-}
-
-.sidebar-link i {
-    margin-right: 5px;
-    font-size: 16px; /* Adjust icon size */
 }
 
 .sidebar-link:hover {
-    background-color: #444; /* Hover background color */
+    background-color: #444;
 }
 
 .admin-btn {
-    background-color: #ff9800;
+    background-color: #ff9800; /* Orange button for Booking */
     color: var(--text-white);
 }
 
 .sidebar-link.active {
-    background-color: #2b2b2b;
-}
-
-/* Sidebar Header */
-.sidebar-header {
-    text-align: left;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    padding: 0 20px; /* Adds padding for consistency with buttons */
-}
-
-.sidebar-header h3 {
-    font-size: 24px;
-    color: var(--text-white);
-    margin: 0;
-}
-
-.sidebar-header hr {
-    border: 0;
-    height: 4px;
-    background-color: #f1f1f1;
-    margin: 10px 0;
-    width: calc(100% - 20px);
-    margin-left: 0;
+    background-color: #007bff;
 }
 
 /* Main Content Styling */
 .main-content {
     flex-grow: 1;
+    margin-left: 250px; /* Create space for sidebar */
     padding: 20px;
     border: 2px solid #333;
     border-radius: 0 25px 25px 0;
     height: 100vh;
     overflow-y: auto; /* Allow scrolling if content overflows */
-}
-
-/* Stylize scrollbar */
-.main-content::-webkit-scrollbar {
-    width: 8px; /* Set width for vertical scrollbar */
-}
-
-.main-content::-webkit-scrollbar-thumb {
-    background-color: var(--red);
-    border-radius: 10px;
-    border: 2px solid var(--background-dark);
-}
-
-.main-content::-webkit-scrollbar-track {
-    background-color: #2b2b2b;
-    border-radius: 10px;
-}
-
-.main-content::-webkit-scrollbar-thumb:hover {
-    background-color: var(--yellow);
-}
-
-.main-content::-webkit-scrollbar-track:hover {
-    background-color: #444;
 }
 
 .main-content {
@@ -287,6 +221,10 @@ h1 span {
     padding: 10px 15px;
     font-size: 12px;
     border-bottom: 1px solid var(--border-light);
+}
+
+.theater-table tbody tr {
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .theater-table tbody tr:hover {
