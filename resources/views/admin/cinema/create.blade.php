@@ -3,7 +3,7 @@
 @section('title', 'Add New Cinema')
 
 @section('content')
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+<div class="container mt-5">
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <div class="card p-4 shadow-lg" style="background-color: #1c1c1c; color: #fff; border-radius: 10px; max-width: 800px; width: 100%;">
+    <div class="card p-4 shadow-lg" style="background-color: #1c1c1c; color: #fff; border-radius: 10px; max-width: 600px; margin: auto;">
         <h2 class="text-center" style="color: #ff4747; font-weight: bold;">Create Cinema</h2>
         <form action="{{ route('cinema.store')}}" method="POST">
             @csrf
@@ -39,7 +39,8 @@
             </div>
 
             <div class="d-grid">
-                <button type="submit" class="btn btn-danger" style="background-color: #ff4747; border: none; font-weight: bold; border-radius: 5px;">Add</button>
+                <button type="submit" class="btn btn-danger" style="background-color: #ff4747; border: none;
+                font-weight: bold; border-radius: 5px;">Add</button>
             </div>
         </form>
     </div>

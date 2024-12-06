@@ -189,10 +189,3 @@ body {
 .movie {
     color: var(--darkerred); /* Color for the "A Movie" text */
 }
-
-.container-1400 {
-    max-width: 1400px; /* Set the maximum width */
-    margin: 0 auto; /* Center the container */
-    padding: 0 20px; /* Add some horizontal padding */
-    box-sizing: border-box; /* Include padding in the width */
-}
