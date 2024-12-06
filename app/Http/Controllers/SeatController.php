@@ -6,6 +6,7 @@ use App\Models\Seat;
 use App\Models\Showtime;
 use App\Models\Studio;
 use App\Models\Ticket;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class SeatController extends Controller
@@ -56,6 +57,20 @@ class SeatController extends Controller
                 'studio_id' => 1,
                 'seat_number' => $seat,
                 'sub_total' => $total
+            ]);
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+
+        try {
+            Booking::create([
+                'user_id' => 1,
+                'movie_id' => 1,
+                'cinema_id' => 1,
+                'showtime_id' =>  1,
+                'chosen_seat' => $seat,
+                'total_price' => $total,
+                'payment_status' => false,
             ]);
         } catch (\Exception $e) {
             dd($e->getMessage());

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cinema_id');
             $table->unsignedBigInteger('showtime_id');
             $table->string('chosen_seat');
-            $table->decimal('total_price', 10, 2);
+            $table->string('total_price');
             $table->boolean('payment_status')->default(false);
             $table->timestamps();
 
