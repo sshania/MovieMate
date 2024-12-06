@@ -55,8 +55,8 @@ Route::post('/movie/store', [MovieController::class, 'store'])->name('movie.stor
 Route::get('/movies/{id}', [MovieController::class, 'show']);
 
 Route::get('/ticket', [TicketController::class, 'index'])->name('user.ticket.index');
-Route::get('/booking', [BookingController::class, 'findByUserID'])->name('user.bookings');
-Route::get('/booking/{id}}', [BookingController::class, 'findByID'])->name('user.booking.detail');
+Route::get('/history', [BookingController::class, 'findByUserID'])->name('user.bookings');
+Route::get('/history/{id}', [BookingController::class, 'findByID'])->name('user.booking.detail');
 
 // buy ticket
 Route::get('/movie/{id}',[MovieController::class, 'findByID'])->name('user.movie.detail');
