@@ -10,6 +10,7 @@ use App\Http\Controllers\StudioController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PaymentController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -108,3 +109,5 @@ Route::prefix('/admin')->group(function(){
     Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
 });
 
+Route::get('/payment-create', [PaymentController::class, 'create'])->name('payment.create');
+Route::get('/payment-store', [PaymentController::class, 'store'])->name('payment.store');
