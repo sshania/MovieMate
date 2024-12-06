@@ -24,6 +24,7 @@ class StudioCreateUpdateRequest extends FormRequest
         return [
             'cinema_id' => 'required|exists:cinemas,id',
             'studio_number' => 'required|integer|unique:studios,studio_number,' .$this->id. ',id,cinema_id,' .$this->cinema_id,
+            'total_seats' => 'required',
         ];
     }
 
@@ -31,6 +32,7 @@ class StudioCreateUpdateRequest extends FormRequest
         return[
             'cinema_id' => 'cinema',
             'studio_number' => 'studio',
+            'total_seats' => 'seats',
         ];
     }
 
