@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Studio;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -18,5 +19,7 @@ class StudioSeeder extends Seeder
             ['cinema_id' => 2, 'studio_number' => '5', 'total_seats' => 180, 'created_at' => now(), 'updated_at' => now()],
             ['cinema_id' => 3, 'studio_number' => '6', 'total_seats' => 250, 'created_at' => now(), 'updated_at' => now()],
         ]);
+
+        Studio::factory()->count(5)->create();
     }
 }

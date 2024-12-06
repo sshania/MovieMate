@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cinema;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -109,5 +110,6 @@ class CinemaSeeder extends Seeder
             ],
         ]);
 
+        Cinema::factory()->count(5)->create();
     }
 }
