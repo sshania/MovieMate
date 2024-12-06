@@ -14,7 +14,8 @@
         <a href="/now-showing">NOW SHOWING</a>
         <a href="/upcoming">UPCOMING</a>
         <a href="/cinema">THEATER</a>
-        <a href="/">HISTORY</a>
+        <a href="/history">HISTORY</a>
+
         <a href="{{ Auth::check() && Auth::user()->role == 2 ? '/admin' : '/booking' }}">
             {{ Auth::check() && Auth::user()->role == 2 ? 'DASHBOARD' : 'BOOKING' }}
         </a>
