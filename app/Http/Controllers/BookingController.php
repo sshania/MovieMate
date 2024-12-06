@@ -30,10 +30,6 @@ class BookingController extends Controller
         return view('admin.booking.index', compact('bookings'));
     }
 
-    // public function adminIndex(){
-    //     $bookings = Booking::get();
-    //     return view('admin.booking.index', ['movieList' => $movies]);
-    // }
 
 
     public function store(Request $request)
@@ -93,7 +89,7 @@ class BookingController extends Controller
         $booking = Booking::findOrFail($id);
 
         $booking->update([
-            'payment_status' => $request->payment_status, 
+            'payment_status' => $request->payment_status,
         ]);
 
         return response()->json(['message' => 'Booking updated successfully', 'booking' => $booking]);

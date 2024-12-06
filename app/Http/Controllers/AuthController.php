@@ -17,7 +17,7 @@ class AuthController extends Controller
 
     function login(Request $request){
         Session::flash('email', $request->email);
-    
+
         $request->validate([
             'email' => 'required',
             'password' => 'required'
@@ -25,19 +25,19 @@ class AuthController extends Controller
             'email.required' => 'Email must be filled',
             'password.required' => 'Password must be filled'
         ]);
-    
+
         $logininfo = [
             'email' => $request->email,
             'password' => $request->password
         ];
-    
+
         if(Auth::attempt($logininfo)){
             return redirect('/')->with('success');
         }else{
             return redirect('auth')->withErrors(['login' => 'Username or Password is invalid']);
         }
     }
-    
+
 
     function logout(){
         Auth::logout();
@@ -97,7 +97,6 @@ class AuthController extends Controller
 
         if(Auth::attempt($logininfo)){
             return('sukses');
-            // return redirect('/mainpage')->with('success', 'Registration successful! You are now logged in.');
         } else {
             return redirect('/auth/register')->withErrors('An error occurred. Please try again.');
         }

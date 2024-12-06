@@ -6,8 +6,6 @@
                 <img src="../assets/LogoMain.png" alt="Movie Mate Logo" class="logo-image">
             </div>
             <div class="menu">
-                {{-- <a href="{{ route('main.home') }}#nowshowing">NOW SHOWING</a>
-                <a href="{{ route('main.home') }}#upcoming">UPCOMING</a> --}}
                 <a href="/">NOW SHOWING</a>
                 <a href="/">UPCOMING</a>
                 <a href="#">THEATER</a>
