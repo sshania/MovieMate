@@ -27,7 +27,6 @@ class PaymentController extends Controller
         // $bookingId  = Booking::findOrFail($id);
         // console.log("tes");
         return view('main.payment', compact('movieId', 'cinemaId', 'showtimeId'));
-        return view('main/payment');
     }
 
     /**

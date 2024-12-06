@@ -5,6 +5,19 @@
 @section('content')
 <link rel="stylesheet" href="{{asset('css/payment.css')}}">
 
+@php
+    $cinemaId = request('cinema_id');
+    $movieId = request('movie_id');
+    $movieTitle = \App\Models\Movie::find($movieId)->title ?? 'Unknown Movie';
+    $movieGenre = \App\Models\Movie::find($movieId)->genre ?? 'Unknown Movie';
+    $moviePoster = \App\Models\Movie::find($movieId)->movie_images ?? 'Unknown Movie';
+
+    $showtimeId = request('showtime_id');
+    $cinemaLocation = \App\Models\Cinema::find($cinemaId)->location ?? 'Unknown Cinema';
+    $showtimeDate = \App\Models\Showtime::find($showtimeId)->showtime_date ?? 'Unknown Date';
+    $showtimeHour = \App\Models\Showtime::find($showtimeId)->showtime_hour ?? 'Unknown Hour';
+@endphp
+
 <div class="order-container-wrapper">
     <div class="order-container">
         <h1>YOUR ORDER</h1>
@@ -12,21 +25,21 @@
             <div class="order-details-wrapper">
                 <div class="order-details">
                     <div class="movie-poster">
-                        <img src="{{ asset('poster/john_wick_4.jpg') }}" alt="Wicked Poster">
+                        <img src="{{ asset('poster/' . $moviePoster) }}" alt="Wicked Poster">
                     </div>
                     <div class="movie-info">
-                        <h2>Wicked</h2>
-                        <p>Fantasy, Musical</p>
-                        <p>📍 Gandaria City</p>
+                        <h2>{{$movieTitle}}</h2>
+                        <p>{{$movieGenre}}</p>
+                        <p>📍{{ $cinemaLocation }}</p>
                     </div>
                 </div>
                 <div class="order-details-2">
                     <div>
-                        <p>19 Nov </p>
+                        <p>{{$showtimeDate}}</p>
                         <p>Date</p>
                     </div>
                     <div>
-                        <p>13.00</p>
+                        <p>{{$showtimeHour}}</p>
                         <p>Hour</p>
                     </div>
                     <div>
@@ -34,11 +47,12 @@
                         <p>Total Seats</p>
                     </div>
                     <div>
-                        <img src="" alt=">">
+                        <p>Total Price</p>
+                        <p>Total</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="payment-method">
                 <div class="payment-title">
                     <h3>Payment Method</h3>
@@ -66,44 +80,21 @@
                     </label>
                 </div>
             </div>
-        
-            <div class="buttons">
-                <button class="btn btn-cancel">Cancel</button>
-                <button class="btn btn-pay">Pay</button>
-            </div>
+
+            {{-- <form action="{{ route('payment.update') }}" method="POST"> --}}
+                @csrf
+                {{-- <input type="hidden" name="booking_id" value="{{ $booking->id }}"> --}}
+
+                <div class="buttons">
+                    <button type="submit" class="btn btn-pay">
+                        <a href="{{ route('payment.update', $booking->id) }}">
+                            Pay
+                        </a>
+                    </button>
+                </div>
+            {{-- </form> --}}
         </div>
     </div>
 </div>
-
-{{-- <div class="">
-    <div>
-        <div>
-            <h1>Your Order</h1>
-        </div>
-        <div>
-            <div>
-                <div class="">
-                    <img src="" alt="">
-                </div>
-                <div class="">
-        
-                </div>
-            </div>
-            <div>
-        
-            </div>
-        </div>
-        <div>
-            Payment Method
-        </div>
-        <div>
-            this is the radio part button
-        </div>
-        <div>
-            <button>Cancel</button>
-            <button>Pay</button>
-        </div>
-    </div>
-</div> --}}
 
 @endsection

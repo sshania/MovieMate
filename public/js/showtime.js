@@ -70,3 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.getElementById('seat').addEventListener('submit', function (e) {
+    const seatCount = document.getElementById('seat-count').innerText;
+    if (!seatCount) {
+        e.preventDefault();
+        alert("Please select at least one seat.");
+    }
+});
