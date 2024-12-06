@@ -29,6 +29,7 @@ body {
     padding: 16px;
     z-index: 1000;
     flex-wrap: wrap;
+    position: sticky;
 }
 
 .navbar .logo img {
@@ -40,6 +41,7 @@ body {
     gap: 15px;
     flex: 1;
     justify-content: flex-end;
+    align-items: center; /* Ensure items are centered vertically */
     margin-right: 12px;
 }
 
@@ -73,48 +75,6 @@ body {
     border: 2px solid var(--red);
 }
 
-.greeting-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.greeting {
-    padding-right: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--red);
-}
-
-.dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #fff;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-    display: none;
-    width: 150px;
-    border-radius: 4px;
-    z-index: 1000;
-}
-
-.dropdown-content a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: #007bff;
-}
-
-.greeting-container:hover .dropdown {
-    display: block;
-}
-
 .alert {
     margin-top: 10px;
     padding: 10px;
@@ -123,9 +83,26 @@ body {
     border-radius: 4px;
 }
 
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: whitesmoke;
+    z-index: 1001; /* Ensure the toggle button is above the sidebar */
+}
+
+#menu {
+    transition: transform 0.3s ease;
+}
+
+#menu.open {
+    transform: translateX(0);
+}
+
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
         align-items: center;
         background: linear-gradient(
             180deg,
@@ -140,19 +117,77 @@ body {
 
     .navbar .menu {
         flex-direction: column;
-        align-items: center; /* Center-align the menu */
+        align-items: flex-start; /* Align items to the start */
         gap: 10px;
-        width: auto; /* Let the menu take only the space it needs */
+        width: 100%; /* Make the menu take full width */
+        padding-top: 60px; /* Add padding to the top */
     }
 
     .navbar .menu a {
-        margin: 5px 0;
-        font-size: 14px;
+        margin: 10px 20px;
+        font-size: 18px;
     }
 
-    .navbar .greeting-container {
-        justify-content: center;
-        margin-top: 10px; /* Add space above the greeting */
+    .navbar .login {
+        margin: 10px 20px;
+        font-size: 18px;
+    }
+
+    .menu-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .menu-icon span {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: whitesmoke;
+        border-radius: 2px;
+        transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+    }
+
+    .menu-icon.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-icon.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-icon.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    #menu {
+        transition: transform 0.3s ease;
+    }
+
+    #menu.open {
+        transform: translateX(0);
+    }
+
+    #menu {
+        position: fixed;
+        top: 75px; /* Posisi sidebar tepat di bawah navbar */
+        right: -10px; /* Sidebar tetap menempel di kanan */
+        height: calc(100% - 75px); /* Sesuaikan tinggi sidebar */
+        width: 250px; /* Lebar sidebar */
+        background-color: black;
+        transform: translateX(100%); /* Sidebar disembunyikan secara default */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Elemen sejajar ke kiri */
+        justify-content: flex-start; /* Elemen ditata dari atas ke bawah */
+        padding: 20px; /* Padding untuk ruang di dalam sidebar */
+        z-index: 1000;
     }
 }
 
