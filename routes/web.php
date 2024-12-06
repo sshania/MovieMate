@@ -11,6 +11,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PaymentController;
 
 
 // Route::get('/', function () {
@@ -124,7 +125,11 @@ Route::prefix('/admin')->group(function(){
 
     Route::get('/bookings', [BookingController::class, 'index'])->name('booking.index');
     Route::get('/bookings-create', [BookingController::class, 'create'])->name('booking.create');
-    Route::post('/booking-store', [ShowtimeController::class, 'store'])->name('booking.store');
-    Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
+    Route::post('/booking-store', [BookingControllerr::class, 'store'])->name('booking.store');
+    Route::get('/bookings-edit/{id}', [BookingController::class, 'edit'])->name('booking.edit');
+    Route::put('/bookings-update/{id}', [BookingController::class, 'update'])->name('booking.update');
+    Route::delete('/bookings-destroy/{id}', [BookingController::class, 'destroy'])->name('booking.delete');
 });
 
+Route::get('/payment-create', [PaymentController::class, 'create'])->name('payment.create');
+Route::get('/payment-store', [PaymentController::class, 'store'])->name('payment.store');
