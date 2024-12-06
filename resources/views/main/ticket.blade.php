@@ -2,12 +2,19 @@
 
 @section('content')
 
-@if (Session::has('status'))
-    <div class="alert alert-success" role="alert">
-        {{Session::get('message')}}
-    </div>
-@endif
-
-{{$ticket}}
+<div>
+    @foreach ($bookingList as $bl)
+        <div>
+            {{$bl->movie->title}}
+        </div>
+        <div>
+            {{$bl->showtime->showtime_date}}
+        </div>
+        <div>
+            {{$bl->showtime->showtime_hour}}
+        </div>
+        <a href="{{ route('user.booking.detail', ['id' => $bl->id]) }}">Detail</a>
+    @endforeach
+</div>
 
 @endsection

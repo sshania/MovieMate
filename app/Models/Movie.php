@@ -30,4 +30,8 @@ class Movie extends Model
     {
         return $this->hasMany(Showtime::class, 'movie_id', 'id');
     }
+
+    public function booking(){
+        return $this->hasMany(Booking::class, 'movie_id', 'id');
+    }
 }

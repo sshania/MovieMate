@@ -29,21 +29,21 @@ class Booking extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function movie()
     {
-        return $this->belongsTo(Movie::class);
+        return $this->belongsTo(Movie::class, 'movie_id', 'id');
     }
 
     public function cinema()
     {
-        return $this->belongsTo(Cinema::class);
+        return $this->belongsTo(Cinema::class, 'cinema_id', 'id');
     }
 
     public function showtime()
     {
-        return $this->belongsTo(Showtime::class);
+        return $this->belongsTo(Showtime::class,'showtime_id', 'id');
     }
 }

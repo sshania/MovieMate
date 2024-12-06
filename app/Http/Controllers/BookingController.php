@@ -13,6 +13,16 @@ use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
+    public function findByUserID(){
+        $booking = Booking::where('user_id', auth()->id())->get();
+        return view('main/ticket', ['bookingList' => $booking]);
+    }
+
+    public function findByID($id){
+        $booking = Booking::findOrFail($id);
+        return view('main/ticket-detail', ['booking' => $booking]);
+    }
+
     public function index()
     {
         $bookings = Booking::with(['user', 'movie', 'cinema', 'showtime'])->get();
