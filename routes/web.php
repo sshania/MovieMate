@@ -11,16 +11,6 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\PaymentController;
-
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/', function () {
-//     return view('main/home');
-// });
 
 Route::get('/', [MovieController::class, 'index']);
 
@@ -66,19 +56,13 @@ Route::get('/movie/{id}/showtimes', [ShowtimeController::class, 'findByMovieID']
 Route::get('/studio/{id}/seats', [SeatController::class, 'findByStID'])->name('user.studio.seat');
 Route::post('/ticket-store', [TicketController::class, 'store'])->name('user.ticket.store');
 
-// Route::get('/payment-create', [PaymentController::class, 'create']);
-// Route::get('/payment-create', [PaymentController::class, 'create'])->name('payment.create');
+
 Route::get('/payment-store', [PaymentController::class, 'store'])->name('payment.store');
-// Route::post('/payment-create', [PaymentController::class, 'create']);
-// Route::post('/payment-update', [BookingController::class, 'updatePaymentStatus'])->name('payment.update');
 
 Route::get('/payment-success', function() {
     return view('payment.success');
 })->name('payment.success');
 
-// Route::get('/payment-failed', function() {
-//     return view('payment.failed');
-// })->name('payment.failed');
 
 Route::prefix('/admin')->group(function(){
     Route::get('', function(){
