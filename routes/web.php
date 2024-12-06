@@ -8,6 +8,7 @@ use App\Http\Controllers\SeatController;
 use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\StudioController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\UserController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -94,4 +95,9 @@ Route::prefix('/admin')->group(function(){
     Route::get('/movie-edit/{id}', [MovieController::class, 'edit'])->name('movie.edit');
     Route::put('/movie-update/{id}', [MovieController::class, 'update'])->name('movie.update');
     Route::delete('/movie-destroy/{id}', [MovieController::class, 'destroy'])->name('movie.delete');
+
+    Route::get('/user', [UserController::class, 'index'])->name('admin.user.index');
+    Route::get('/user-edit/{id}', [UserController::class,'edit'])->name('admin.user.edit');
+    Route::put('/user-update/{id}', [UserController::class,'update'])->name('admin.user.update');
+    Route::delete('/user-destroy/{id}', [UserController::class, 'destroy'])->name('admin.user.delete');
 });
