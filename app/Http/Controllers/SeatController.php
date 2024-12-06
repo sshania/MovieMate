@@ -65,9 +65,10 @@ class SeatController extends Controller
         try {
             Booking::create([
                 'user_id' => 1,
-                'movie_id' => 1,
-                'cinema_id' => 1,
-                'showtime_id' =>  1,
+                'movie_id' => $request->movie_id,
+                'cinema_id' => $request->cinema_id,
+                'showtime_id' => $request->showtime_id,
+                // 'showtime_id' => 1,
                 'chosen_seat' => $seat,
                 'total_price' => $total,
                 'payment_status' => false,
@@ -75,6 +76,7 @@ class SeatController extends Controller
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
+        dd($request->all());
     }
 
     // public function showSeats(Request $request)
