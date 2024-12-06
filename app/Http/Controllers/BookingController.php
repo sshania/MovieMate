@@ -34,7 +34,7 @@ class BookingController extends Controller
             'cinema_id' => 'required|exists:cinemas,id',
             'showtime_id' => 'required|exists:showtimes,id',
             'chosen_seat' => 'required|string',
-            'total_price' => 'required|numeric',
+            'total_price' => 'required|string',
         ]);
 
         $booking = Booking::create([
