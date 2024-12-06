@@ -5,6 +5,8 @@
 
 @php
     $cinemaId = request('cinema_id');
+    $movieId = request('movie_id');
+    $showtimeId = request('showtime_id');
     $cinemaName = \App\Models\Cinema::find($cinemaId)->name ?? 'Unknown Cinema';
     $showtimeDate = request('showtime_date') ?? 'Unknown Date';
     $showtimeHour = request('showtime_hour') ?? 'Unknown Hour';
@@ -79,6 +81,12 @@
     <div class="order-container">
         <form action="/seats" method="POST" id="seat">
             @csrf
+
+            <input type="hidden" name="movie_id" value="{{ request('movie_id') }}">
+            <input type="hidden" name="cinema_id" value="{{ request('cinema_id') }}">
+            <input type="hidden" name="showtime_id" value="{{ request('showtime_id') }}">
+
+
                 <div class="order-title"><span id="red">YOUR ORDER</span></div>
                 <div class="order-details">
                     <p>

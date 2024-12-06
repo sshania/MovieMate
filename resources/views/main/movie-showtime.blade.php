@@ -47,7 +47,10 @@
                                         <p>{{ $showtime->showtime_hour }}</p>
                                     </div> --}}
                                     <div class="showtime-hour"
+                                        data-movie-id="{{ $showtime->movie->id }}"
                                         data-cinema-id="{{ $showtime->cinema->id }}"
+                                        data-showtime-id="{{$showtime->id}}"
+                                        {{-- data-showtime-id="{{ $showtime->showtime ? $showtime->showtime->id : '' }}" --}}
                                         data-showtime-hour="{{ $showtime->showtime_hour }}"
                                         data-showtime-date="{{ $showtime->showtime_date }}">
                                         <p>{{ $showtime->showtime_hour }}</p>
