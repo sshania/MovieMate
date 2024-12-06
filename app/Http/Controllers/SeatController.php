@@ -62,6 +62,19 @@ class SeatController extends Controller
         }
     }
 
+    // public function showSeats(Request $request)
+    // {
+    //     $cinemaId = $request->input('cinema_id');
+    //     $showtimeHour = $request->input('showtime_hour');
+
+    //     $seats = Seat::where('cinema_id', $cinemaId)
+    //                 ->where('showtime_hour', $showtimeHour)
+    //                 ->get();
+
+    //     return view('seats', ['seats' => $seats]);
+    // }
+
+
     /**
      * Display the specified resource.
      */

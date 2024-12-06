@@ -3,6 +3,13 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/seats.css') }}">
 
+@php
+    $cinemaId = request('cinema_id');
+    $cinemaName = \App\Models\Cinema::find($cinemaId)->name ?? 'Unknown Cinema';
+    $showtimeDate = request('showtime_date') ?? 'Unknown Date';
+    $showtimeHour = request('showtime_hour') ?? 'Unknown Hour';
+@endphp
+
 <div class="back-button">
     <a href="">
         <img src="../assets/Back-Logo.png" alt="">
@@ -11,8 +18,8 @@
 </div>
 
 <div class="title-info">
-    <div class="theater-info">Gandaria City | </div>
-    <div class="date-info">Wednesday, 19 November 13.00</div>
+    <div class="theater-info">{{ $cinemaName }} | </div>
+    <div class="date-info">{{ $showtimeDate }} {{ $showtimeHour }} </div>
 </div>
 
 <div class="outer-container">

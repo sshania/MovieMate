@@ -9,6 +9,7 @@ use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\StudioController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookingController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -100,4 +101,10 @@ Route::prefix('/admin')->group(function(){
     Route::get('/user-edit/{id}', [UserController::class,'edit'])->name('admin.user.edit');
     Route::put('/user-update/{id}', [UserController::class,'update'])->name('admin.user.update');
     Route::delete('/user-destroy/{id}', [UserController::class, 'destroy'])->name('admin.user.delete');
+
+    Route::get('/bookings', [BookingController::class, 'index'])->name('booking.index');
+    Route::get('/bookings-create', [BookingController::class, 'create'])->name('booking.create');
+    Route::post('/booking-store', [ShowtimeController::class, 'store'])->name('booking.store');
+    Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
 });
+
