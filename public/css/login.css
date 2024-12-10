@@ -1,7 +1,7 @@
-:root{
-    --red : #B0181C;
-    --darkerred : #7E1616;
-    --yellow : #FCC252;
+:root {
+    --red: #b0181c;
+    --darkerred: #7e1616;
+    --yellow: #fcc252;
 }
 
 /* body {
@@ -75,7 +75,6 @@
     border-color: var(--red);
 }
 
-
 .login-button {
     background-color: var(--red);
     color: #fff;
@@ -99,7 +98,7 @@
     margin-top: 5px;
 }
 .alert-danger {
-    background-color: #f8d7da;
+    background-color: #b0181c;
     color: #721c24;
     padding: 10px;
     margin-bottom: 20px;
@@ -110,7 +109,6 @@
 .alert.alert-danger {
     color: #721c24;
 }
-
 
 .alert-danger ul {
     margin: 0;

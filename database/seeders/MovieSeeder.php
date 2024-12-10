@@ -289,6 +289,6 @@ class MovieSeeder extends Seeder
             ]
         ]);
 
-        Movie::factory()->count(10)->create();
+        //Movie::factory()->count(10)->create();
     }
 }

@@ -96,7 +96,7 @@ class AuthController extends Controller
         ];
 
         if(Auth::attempt($logininfo)){
-            return('sukses');
+            return redirect('/');
         } else {
             return redirect('/auth/register')->withErrors('An error occurred. Please try again.');
         }

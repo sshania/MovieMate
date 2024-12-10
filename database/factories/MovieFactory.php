@@ -48,7 +48,7 @@ class MovieFactory extends Factory
             'casts' => implode(', ', $randomCasts),
             'description' => $faker->paragraph(),
             'release_date' => $faker->dateTimeBetween('-5 years', '+5 years'),
-            'movie_images' => $faker->imageUrl(640, 480, 'movie', true),
+            'movie_images' => 'barbie.jpg',
         ];
     }
 }
